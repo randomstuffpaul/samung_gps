@@ -13,30 +13,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 #ifndef ANDROID_INCLUDE_HARDWARE_GPS_H
 #define ANDROID_INCLUDE_HARDWARE_GPS_H
+
 #include <stdint.h>
 #include <sys/cdefs.h>
 #include <sys/types.h>
 #include <pthread.h>
 #include <sys/socket.h>
 #include <stdbool.h>
+
 #include <hardware/hardware.h>
+
 __BEGIN_DECLS
+
 /**
  * The id of this module
  */
 #define GPS_HARDWARE_MODULE_ID "gps"
+
+
 /** Milliseconds since January 1, 1970 */
 typedef int64_t GpsUtcTime;
+
 /** Maximum number of SVs for gps_sv_status_callback(). */
 #define GPS_MAX_SVS 32
 /** Maximum number of SVs for gps_sv_status_callback(). */
 #define GNSS_MAX_SVS 64
+
 /** Maximum number of Measurements in gps_measurement_callback(). */
 #define GPS_MAX_MEASUREMENT   32
+
 /** Maximum number of Measurements in gnss_measurement_callback(). */
 #define GNSS_MAX_MEASUREMENT   64
+
 /** Requested operational mode for GPS operation. */
 typedef uint32_t GpsPositionMode;
 /* IMPORTANT: Note that the following values must match
@@ -50,6 +61,7 @@ typedef uint32_t GpsPositionMode;
  * It is strongly recommended to use GPS_POSITION_MODE_MS_BASED instead.
  */
 #define GPS_POSITION_MODE_MS_ASSISTED   2
+
 /** Requested recurrence mode for GPS operation. */
 typedef uint32_t GpsPositionRecurrence;
 /* IMPORTANT: Note that the following values must match
@@ -58,6 +70,7 @@ typedef uint32_t GpsPositionRecurrence;
 #define GPS_POSITION_RECURRENCE_PERIODIC    0
 /** Request a single shot GPS fix. */
 #define GPS_POSITION_RECURRENCE_SINGLE      1
+
 /** GPS status event values. */
 typedef uint16_t GpsStatusValue;
 /* IMPORTANT: Note that the following values must match
@@ -72,6 +85,7 @@ typedef uint16_t GpsStatusValue;
 #define GPS_STATUS_ENGINE_ON        3
 /** GPS is powered off. */
 #define GPS_STATUS_ENGINE_OFF       4
+
 /** Flags to indicate which values are valid in a GpsLocation. */
 typedef uint16_t GpsLocationFlags;
 /* IMPORTANT: Note that the following values must match
@@ -86,7 +100,9 @@ typedef uint16_t GpsLocationFlags;
 #define GPS_LOCATION_HAS_BEARING    0x0008
 /** GpsLocation has valid accuracy. */
 #define GPS_LOCATION_HAS_ACCURACY   0x0010
+
 /** Flags for the gps_set_capabilities callback. */
+
 /**
  * GPS HAL schedules fixes for GPS_POSITION_RECURRENCE_PERIODIC mode. If this is
  * not set, then the framework will use 1000ms for min_interval and will start
@@ -107,6 +123,7 @@ typedef uint16_t GpsLocationFlags;
 #define GPS_CAPABILITY_MEASUREMENTS     (1 << 6)
 /** GPS supports Navigation Messages */
 #define GPS_CAPABILITY_NAV_MESSAGES     (1 << 7)
+
 /**
  * Flags used to specify which aiding data to delete when calling
  * delete_aiding_data().
@@ -127,24 +144,29 @@ typedef uint16_t GpsAidingData;
 #define GPS_DELETE_RTI              0x0400
 #define GPS_DELETE_CELLDB_INFO      0x8000
 #define GPS_DELETE_ALL              0xFFFF
+
 /** AGPS type */
 typedef uint16_t AGpsType;
 #define AGPS_TYPE_SUPL          1
 #define AGPS_TYPE_C2K           2
+
 typedef uint16_t AGpsSetIDType;
 #define AGPS_SETID_TYPE_NONE    0
 #define AGPS_SETID_TYPE_IMSI    1
 #define AGPS_SETID_TYPE_MSISDN  2
+
 typedef uint16_t ApnIpType;
 #define APN_IP_INVALID          0
 #define APN_IP_IPV4             1
 #define APN_IP_IPV6             2
 #define APN_IP_IPV4V6           3
+
 /**
  * String length constants
  */
 #define GPS_NI_SHORT_STRING_MAXLEN      256
 #define GPS_NI_LONG_STRING_MAXLEN       2048
+
 /**
  * GpsNiType constants
  */
@@ -152,6 +174,7 @@ typedef uint32_t GpsNiType;
 #define GPS_NI_TYPE_VOICE              1
 #define GPS_NI_TYPE_UMTS_SUPL          2
 #define GPS_NI_TYPE_UMTS_CTRL_PLANE    3
+
 /**
  * GpsNiNotifyFlags constants
  */
@@ -162,6 +185,7 @@ typedef uint32_t GpsNiNotifyFlags;
 #define GPS_NI_NEED_VERIFY          0x0002
 /** NI requires privacy override, no notification/minimal trace */
 #define GPS_NI_PRIVACY_OVERRIDE     0x0004
+
 /**
  * GPS NI responses, used to define the response in
  * NI structures
@@ -170,6 +194,7 @@ typedef int GpsUserResponseType;
 #define GPS_NI_RESPONSE_ACCEPT         1
 #define GPS_NI_RESPONSE_DENY           2
 #define GPS_NI_RESPONSE_NORESP         3
+
 /**
  * NI data encoding scheme
  */
@@ -179,6 +204,7 @@ typedef int GpsNiEncodingType;
 #define GPS_ENC_SUPL_UTF8              2
 #define GPS_ENC_SUPL_UCS2              3
 #define GPS_ENC_UNKNOWN                -1
+
 /** AGPS status event values. */
 typedef uint16_t AGpsStatusValue;
 /** GPS requests data connection for AGPS. */
@@ -191,13 +217,16 @@ typedef uint16_t AGpsStatusValue;
 #define GPS_AGPS_DATA_CONN_DONE     4
 /** AGPS data connection failed */
 #define GPS_AGPS_DATA_CONN_FAILED   5
+
 typedef uint16_t AGpsRefLocationType;
 #define AGPS_REF_LOCATION_TYPE_GSM_CELLID   1
 #define AGPS_REF_LOCATION_TYPE_UMTS_CELLID  2
 #define AGPS_REF_LOCATION_TYPE_MAC          3
 #define AGPS_REF_LOCATION_TYPE_LTE_CELLID   4
+
 /* Deprecated, to be removed in the next Android release. */
 #define AGPS_REG_LOCATION_TYPE_MAC          3
+
 /** Network types for update_network_state "type" parameter */
 #define AGPS_RIL_NETWORK_TYPE_MOBILE        0
 #define AGPS_RIL_NETWORK_TYPE_WIFI          1
@@ -206,6 +235,7 @@ typedef uint16_t AGpsRefLocationType;
 #define AGPS_RIL_NETWORK_TTYPE_MOBILE_DUN   4
 #define AGPS_RIL_NETWORK_TTYPE_MOBILE_HIPRI 5
 #define AGPS_RIL_NETWORK_TTYPE_WIMAX        6
+
 /* The following typedef together with its constants below are deprecated, and
  * will be removed in the next release. */
 typedef uint16_t GpsClockFlags;
@@ -216,6 +246,7 @@ typedef uint16_t GpsClockFlags;
 #define GPS_CLOCK_HAS_BIAS_UNCERTAINTY          (1<<4)
 #define GPS_CLOCK_HAS_DRIFT                     (1<<5)
 #define GPS_CLOCK_HAS_DRIFT_UNCERTAINTY         (1<<6)
+
 /**
  * Flags to indicate what fields in GnssClock are valid.
  */
@@ -234,12 +265,14 @@ typedef uint16_t GnssClockFlags;
 #define GNSS_CLOCK_HAS_DRIFT                     (1<<5)
 /** A valid 'drift uncertainty' is stored in the data structure. */
 #define GNSS_CLOCK_HAS_DRIFT_UNCERTAINTY         (1<<6)
+
 /* The following typedef together with its constants below are deprecated, and
  * will be removed in the next release. */
 typedef uint8_t GpsClockType;
 #define GPS_CLOCK_TYPE_UNKNOWN                  0
 #define GPS_CLOCK_TYPE_LOCAL_HW_TIME            1
 #define GPS_CLOCK_TYPE_GPS_TIME                 2
+
 /* The following typedef together with its constants below are deprecated, and
  * will be removed in the next release. */
 typedef uint32_t GpsMeasurementFlags;
@@ -262,6 +295,7 @@ typedef uint32_t GpsMeasurementFlags;
 #define GPS_MEASUREMENT_HAS_DOPPLER_SHIFT_UNCERTAINTY         (1<<16)
 #define GPS_MEASUREMENT_HAS_USED_IN_FIX                       (1<<17)
 #define GPS_MEASUREMENT_HAS_UNCORRECTED_PSEUDORANGE_RATE      (1<<18)
+
 /**
  * Flags to indicate what fields in GnssMeasurement are valid.
  */
@@ -276,12 +310,14 @@ typedef uint32_t GnssMeasurementFlags;
 #define GNSS_MEASUREMENT_HAS_CARRIER_PHASE                     (1<<11)
 /** A valid 'carrier phase uncertainty' is stored in the data structure. */
 #define GNSS_MEASUREMENT_HAS_CARRIER_PHASE_UNCERTAINTY         (1<<12)
+
 /* The following typedef together with its constants below are deprecated, and
  * will be removed in the next release. */
 typedef uint8_t GpsLossOfLock;
 #define GPS_LOSS_OF_LOCK_UNKNOWN                            0
 #define GPS_LOSS_OF_LOCK_OK                                 1
 #define GPS_LOSS_OF_LOCK_CYCLE_SLIP                         2
+
 /* The following typedef together with its constants below are deprecated, and
  * will be removed in the next release. Use GnssMultipathIndicator instead.
  */
@@ -289,6 +325,7 @@ typedef uint8_t GpsMultipathIndicator;
 #define GPS_MULTIPATH_INDICATOR_UNKNOWN                 0
 #define GPS_MULTIPATH_INDICATOR_DETECTED                1
 #define GPS_MULTIPATH_INDICATOR_NOT_USED                2
+
 /**
  * Enumeration of available values for the GNSS Measurement's multipath
  * indicator.
@@ -300,6 +337,7 @@ typedef uint8_t GnssMultipathIndicator;
 #define GNSS_MULTIPATH_INDICATOR_PRESENT                 1
 /** The measurement is indicated to be not affected by multipath. */
 #define GNSS_MULTIPATH_INDICATOR_NOT_PRESENT             2
+
 /* The following typedef together with its constants below are deprecated, and
  * will be removed in the next release. */
 typedef uint16_t GpsMeasurementState;
@@ -309,6 +347,7 @@ typedef uint16_t GpsMeasurementState;
 #define GPS_MEASUREMENT_STATE_SUBFRAME_SYNC         (1<<2)
 #define GPS_MEASUREMENT_STATE_TOW_DECODED           (1<<3)
 #define GPS_MEASUREMENT_STATE_MSEC_AMBIGUOUS        (1<<4)
+
 /**
  * Flags indicating the GNSS measurement state.
  *
@@ -339,6 +378,7 @@ typedef uint32_t GnssMeasurementState;
 #define GNSS_MEASUREMENT_STATE_GAL_E1C_2ND_CODE_LOCK (1<<11)
 #define GNSS_MEASUREMENT_STATE_GAL_E1B_PAGE_SYNC     (1<<12)
 #define GNSS_MEASUREMENT_STATE_SBAS_SYNC             (1<<13)
+
 /* The following typedef together with its constants below are deprecated, and
  * will be removed in the next release. */
 typedef uint16_t GpsAccumulatedDeltaRangeState;
@@ -346,6 +386,7 @@ typedef uint16_t GpsAccumulatedDeltaRangeState;
 #define GPS_ADR_STATE_VALID                     (1<<0)
 #define GPS_ADR_STATE_RESET                     (1<<1)
 #define GPS_ADR_STATE_CYCLE_SLIP                (1<<2)
+
 /**
  * Flags indicating the Accumulated Delta Range's states.
  */
@@ -354,6 +395,7 @@ typedef uint16_t GnssAccumulatedDeltaRangeState;
 #define GNSS_ADR_STATE_VALID                     (1<<0)
 #define GNSS_ADR_STATE_RESET                     (1<<1)
 #define GNSS_ADR_STATE_CYCLE_SLIP                (1<<2)
+
 /* The following typedef together with its constants below are deprecated, and
  * will be removed in the next release. */
 typedef uint8_t GpsNavigationMessageType;
@@ -362,6 +404,7 @@ typedef uint8_t GpsNavigationMessageType;
 #define GPS_NAVIGATION_MESSAGE_TYPE_L2CNAV          2
 #define GPS_NAVIGATION_MESSAGE_TYPE_L5CNAV          3
 #define GPS_NAVIGATION_MESSAGE_TYPE_CNAV2           4
+
 /**
  * Enumeration of available values to indicate the GNSS Navigation message
  * types.
@@ -370,6 +413,7 @@ typedef uint8_t GpsNavigationMessageType;
  * is typically transmitted
  */
 typedef int16_t GnssNavigationMessageType;
+
 #define GNSS_NAVIGATION_MESSAGE_TYPE_UNKNOWN       0
 /** GPS L1 C/A message contained in the structure.  */
 #define GNSS_NAVIGATION_MESSAGE_TYPE_GPS_L1CA      0x0101
@@ -389,6 +433,7 @@ typedef int16_t GnssNavigationMessageType;
 #define GNSS_NAVIGATION_MESSAGE_TYPE_GAL_I         0x0601
 /** Galileo F/NAV message contained in the structure. */
 #define GNSS_NAVIGATION_MESSAGE_TYPE_GAL_F         0x0602
+
 /**
  * Status of Navigation Message
  * When a message is received properly without any parity error in its navigation words, the
@@ -402,8 +447,10 @@ typedef uint16_t NavigationMessageStatus;
 #define NAV_MESSAGE_STATUS_UNKNOWN              0
 #define NAV_MESSAGE_STATUS_PARITY_PASSED   (1<<0)
 #define NAV_MESSAGE_STATUS_PARITY_REBUILT  (1<<1)
+
 /* This constant is deprecated, and will be removed in the next release. */
 #define NAV_MESSAGE_STATUS_UNKONW              0
+
 /**
  * Flags that indicate information about the satellite
  */
@@ -412,6 +459,7 @@ typedef uint8_t                                 GnssSvFlags;
 #define GNSS_SV_FLAGS_HAS_EPHEMERIS_DATA        (1 << 0)
 #define GNSS_SV_FLAGS_HAS_ALMANAC_DATA          (1 << 1)
 #define GNSS_SV_FLAGS_USED_IN_FIX               (1 << 2)
+
 /**
  * Constellation type of GnssSvInfo
  */
@@ -423,46 +471,63 @@ typedef uint8_t                         GnssConstellationType;
 #define GNSS_CONSTELLATION_QZSS         4
 #define GNSS_CONSTELLATION_BEIDOU       5
 #define GNSS_CONSTELLATION_GALILEO      6
+
 /**
  * Name for the GPS XTRA interface.
  */
 #define GPS_XTRA_INTERFACE      "gps-xtra"
+
 /**
  * Name for the GPS DEBUG interface.
  */
 #define GPS_DEBUG_INTERFACE      "gps-debug"
+
 /**
  * Name for the AGPS interface.
  */
 #define AGPS_INTERFACE      "agps"
+
 /**
  * Name of the Supl Certificate interface.
  */
 #define SUPL_CERTIFICATE_INTERFACE  "supl-certificate"
+
 /**
  * Name for NI interface
  */
 #define GPS_NI_INTERFACE "gps-ni"
+
 /**
  * Name for the AGPS-RIL interface.
  */
 #define AGPS_RIL_INTERFACE      "agps_ril"
+
+/**
+ * The GPS chipset can use Psc for AGPS
+ */
+#define AGPS_USE_PSC
+
 /**
  * Name for the GPS_Geofencing interface.
  */
 #define GPS_GEOFENCING_INTERFACE   "gps_geofencing"
+
 /**
  * Name of the GPS Measurements interface.
  */
 #define GPS_MEASUREMENT_INTERFACE   "gps_measurement"
+
 /**
  * Name of the GPS navigation message interface.
  */
 #define GPS_NAVIGATION_MESSAGE_INTERFACE     "gps_navigation_message"
+
 /**
  * Name of the GNSS/GPS configuration interface.
  */
 #define GNSS_CONFIGURATION_INTERFACE     "gnss_configuration"
+
+
 /** Represents a location. */
 typedef struct {
     /** set to sizeof(GpsLocation) */
@@ -486,12 +551,14 @@ typedef struct {
     /** Timestamp for the location fix. */
     GpsUtcTime      timestamp;
 } GpsLocation;
+
 /** Represents the status. */
 typedef struct {
     /** set to sizeof(GpsStatus) */
     size_t          size;
     GpsStatusValue status;
 } GpsStatus;
+
 /**
  * Legacy struct to represents SV information.
  * Deprecated, to be removed in the next Android release.
@@ -508,10 +575,14 @@ typedef struct {
     float   elevation;
     /** Azimuth of SV in degrees. */
     float   azimuth;
+    /** Placeholder for Samsung ABI compat. */
+    int     unknown;
 } GpsSvInfo;
+
 typedef struct {
     /** set to sizeof(GnssSvInfo) */
     size_t size;
+
     /**
      * Pseudo-random number for the SV, or FCN/OSN number for Glonass. The
      * distinction is made by looking at constellation field. Values should be
@@ -527,11 +598,13 @@ typedef struct {
      * - Beidou:  1-37
      */
     int16_t svid;
+
     /**
      * Defines the constellation of the given SV. Value should be one of those
      * GNSS_CONSTELLATION_* constants
      */
     GnssConstellationType constellation;
+
     /**
      * Carrier-to-noise density in dB-Hz, typically in the range [0, 63].
      * It contains the measured C/N0 value for the signal at the antenna port.
@@ -539,16 +612,21 @@ typedef struct {
      * This is a mandatory value.
      */
     float c_n0_dbhz;
+
     /** Elevation of SV in degrees. */
     float elevation;
+
     /** Azimuth of SV in degrees. */
     float azimuth;
+
     /**
      * Contains additional data about the given SV. Value should be one of those
      * GNSS_SV_FLAGS_* constants
      */
     GnssSvFlags flags;
+
 } GnssSvInfo;
+
 /**
  * Legacy struct to represents SV status.
  * Deprecated, to be removed in the next Android release.
@@ -563,12 +641,14 @@ typedef struct {
     uint32_t almanac_mask;
     uint32_t used_in_fix_mask;
 } GpsSvStatus;
+
 /**
  * Represents SV status.
  */
 typedef struct {
     /** set to sizeof(GnssSvStatus) */
     size_t size;
+
     /** Number of GPS SVs currently visible, refers to the SVs stored in sv_list */
     int num_svs;
     /**
@@ -576,7 +656,9 @@ typedef struct {
      * except GPS, which is reported using sv_list
      */
     GnssSvInfo gnss_sv_list[GNSS_MAX_SVS];
+
 } GnssSvStatus;
+
 /* CellID for 2G, 3G and LTE, used in AGPS. */
 typedef struct {
     AGpsRefLocationType type;
@@ -589,6 +671,9 @@ typedef struct {
      * might rely in the old (wrong) behavior.
      */
     uint16_t lac;
+#ifdef AGPS_USE_PSC
+    uint16_t psc;
+#endif
     /** Cell id in 2G. Utran Cell id in 3G. Cell Global Id EUTRA in LTE. */
     uint32_t cid;
     /** Tracking Area Code in LTE. */
@@ -596,9 +681,11 @@ typedef struct {
     /** Physical Cell id in LTE (not used in 2G and 3G) */
     uint16_t pcid;
 } AGpsRefLocationCellID;
+
 typedef struct {
     uint8_t mac[6];
 } AGpsRefLocationMac;
+
 /** Represents ref locations */
 typedef struct {
     AGpsRefLocationType type;
@@ -607,16 +694,19 @@ typedef struct {
         AGpsRefLocationMac      mac;
     } u;
 } AGpsRefLocation;
+
 /**
  * Callback with location information. Can only be called from a thread created
  * by create_thread_cb.
  */
 typedef void (* gps_location_callback)(GpsLocation* location);
+
 /**
  * Callback with status information. Can only be called from a thread created by
  * create_thread_cb.
  */
 typedef void (* gps_status_callback)(GpsStatus* status);
+
 /**
  * Legacy callback with SV status information.
  * Can only be called from a thread created by create_thread_cb.
@@ -625,36 +715,44 @@ typedef void (* gps_status_callback)(GpsStatus* status);
  * gnss_sv_status_callback() instead.
  */
 typedef void (* gps_sv_status_callback)(GpsSvStatus* sv_info);
+
 /**
  * Callback with SV status information.
  * Can only be called from a thread created by create_thread_cb.
  */
 typedef void (* gnss_sv_status_callback)(GnssSvStatus* sv_info);
+
 /**
  * Callback for reporting NMEA sentences. Can only be called from a thread
  * created by create_thread_cb.
  */
 typedef void (* gps_nmea_callback)(GpsUtcTime timestamp, const char* nmea, int length);
+
 /**
  * Callback to inform framework of the GPS engine's capabilities. Capability
  * parameter is a bit field of GPS_CAPABILITY_* flags.
  */
 typedef void (* gps_set_capabilities)(uint32_t capabilities);
+
 /**
  * Callback utility for acquiring the GPS wakelock. This can be used to prevent
  * the CPU from suspending while handling GPS events.
  */
 typedef void (* gps_acquire_wakelock)();
+
 /** Callback utility for releasing the GPS wakelock. */
 typedef void (* gps_release_wakelock)();
+
 /** Callback for requesting NTP time */
 typedef void (* gps_request_utc_time)();
+
 /**
  * Callback for creating a thread that can call into the Java framework code.
  * This must be used to create any threads that report events up to the
  * framework.
  */
 typedef pthread_t (* gps_create_thread)(const char* name, void (*start)(void *), void* arg);
+
 /**
  * Provides information about how new the underlying GPS/GNSS hardware and
  * software is.
@@ -674,10 +772,12 @@ typedef struct {
      * used to capture GNSS signals, e.g. 2016 */
     uint16_t year_of_hw;
 } GnssSystemInfo;
+
 /**
  * Callback to inform framework of the engine's hardware version information.
  */
 typedef void (*gnss_set_system_info)(const GnssSystemInfo* info);
+
 /** New GPS callback structure. */
 typedef struct {
     /** set to sizeof(GpsCallbacks) */
@@ -691,9 +791,11 @@ typedef struct {
     gps_release_wakelock release_wakelock_cb;
     gps_create_thread create_thread_cb;
     gps_request_utc_time request_utc_time_cb;
+
     gnss_set_system_info set_system_info_cb;
     gnss_sv_status_callback gnss_sv_status_cb;
 } GpsCallbacks;
+
 /** Represents the standard GPS interface. */
 typedef struct {
     /** set to sizeof(GpsInterface) */
@@ -703,27 +805,34 @@ typedef struct {
      * to the implementation of this interface.
      */
     int   (*init)( GpsCallbacks* callbacks );
+
     /** Starts navigating. */
     int   (*start)( void );
+
     /** Stops navigating. */
     int   (*stop)( void );
+
     /** Closes the interface. */
     void  (*cleanup)( void );
+
     /** Injects the current time. */
     int   (*inject_time)(GpsUtcTime time, int64_t timeReference,
                          int uncertainty);
+
     /**
      * Injects current location from another location provider (typically cell
      * ID). Latitude and longitude are measured in degrees expected accuracy is
      * measured in meters
      */
     int  (*inject_location)(double latitude, double longitude, float accuracy);
+
     /**
      * Specifies that the next call to start will not use the
      * information defined in the flags. GPS_DELETE_ALL is passed for
      * a cold start.
      */
     void  (*delete_aiding_data)(GpsAidingData flags);
+
     /**
      * min_interval represents the time between fixes in milliseconds.
      * preferred_accuracy represents the requested fix accuracy in meters.
@@ -737,20 +846,24 @@ typedef struct {
      */
     int   (*set_position_mode)(GpsPositionMode mode, GpsPositionRecurrence recurrence,
             uint32_t min_interval, uint32_t preferred_accuracy, uint32_t preferred_time);
+
     /** Get a pointer to extension information. */
     const void* (*get_extension)(const char* name);
 } GpsInterface;
+
 /**
  * Callback to request the client to download XTRA data. The client should
  * download XTRA data and inject it by calling inject_xtra_data(). Can only be
  * called from a thread created by create_thread_cb.
  */
 typedef void (* gps_xtra_download_request)();
+
 /** Callback structure for the XTRA interface. */
 typedef struct {
     gps_xtra_download_request download_request_cb;
     gps_create_thread create_thread_cb;
 } GpsXtraCallbacks;
+
 /** Extended interface for XTRA support. */
 typedef struct {
     /** set to sizeof(GpsXtraInterface) */
@@ -763,45 +876,54 @@ typedef struct {
     /** Injects XTRA data into the GPS. */
     int  (*inject_xtra_data)( char* data, int length );
 } GpsXtraInterface;
+
 /** Extended interface for DEBUG support. */
 typedef struct {
     /** set to sizeof(GpsDebugInterface) */
     size_t          size;
+
     /**
      * This function should return any information that the native
      * implementation wishes to include in a bugreport.
      */
     size_t (*get_internal_state)(char* buffer, size_t bufferSize);
 } GpsDebugInterface;
+
 /*
  * Represents the status of AGPS augmented to support IPv4 and IPv6.
  */
 typedef struct {
     /** set to sizeof(AGpsStatus) */
     size_t                  size;
+
     AGpsType                type;
     AGpsStatusValue         status;
+
     /**
      * Must be set to a valid IPv4 address if the field 'addr' contains an IPv4
      * address, or set to INADDR_NONE otherwise.
      */
     uint32_t                ipaddr;
+
     /**
      * Must contain the IPv4 (AF_INET) or IPv6 (AF_INET6) address to report.
      * Any other value of addr.ss_family will be rejected.
      */
     struct sockaddr_storage addr;
 } AGpsStatus;
+
 /**
  * Callback with AGPS status information. Can only be called from a thread
  * created by create_thread_cb.
  */
 typedef void (* agps_status_callback)(AGpsStatus* status);
+
 /** Callback structure for the AGPS interface. */
 typedef struct {
     agps_status_callback status_cb;
     gps_create_thread create_thread_cb;
 } AGpsCallbacks;
+
 /**
  * Extended interface for AGPS support, it is augmented to enable to pass
  * extra APN data.
@@ -809,6 +931,7 @@ typedef struct {
 typedef struct {
     /** set to sizeof(AGpsInterface) */
     size_t size;
+
     /**
      * Opens the AGPS interface and provides the callback routines to the
      * implementation of this interface.
@@ -832,6 +955,7 @@ typedef struct {
      * Sets the hostname and port for the AGPS server.
      */
     int (*set_server)(AGpsType type, const char* hostname, int port);
+
     /**
      * Notifies that a data connection is available and sets the name of the
      * APN, and its IP type, to be used for SUPL connections.
@@ -840,15 +964,18 @@ typedef struct {
             const char* apn,
             ApnIpType apnIpType);
 } AGpsInterface;
+
 /** Error codes associated with certificate operations */
 #define AGPS_CERTIFICATE_OPERATION_SUCCESS               0
 #define AGPS_CERTIFICATE_ERROR_GENERIC                -100
 #define AGPS_CERTIFICATE_ERROR_TOO_MANY_CERTIFICATES  -101
+
 /** A data structure that represents an X.509 certificate using DER encoding */
 typedef struct {
     size_t  length;
     u_char* data;
 } DerEncodedCertificate;
+
 /**
  * A type definition for SHA1 Fingerprints used to identify X.509 Certificates
  * The Fingerprint is a digest of the DER Certificate that uniquely identifies it.
@@ -856,10 +983,12 @@ typedef struct {
 typedef struct {
     u_char data[20];
 } Sha1CertificateFingerprint;
+
 /** AGPS Interface to handle SUPL certificate operations */
 typedef struct {
     /** set to sizeof(SuplCertificateInterface) */
     size_t size;
+
     /**
      * Installs a set of Certificates used for SUPL connections to the AGPS server.
      * If needed the HAL should find out internally any certificates that need to be removed to
@@ -884,6 +1013,7 @@ typedef struct {
      *      removed to accommodate the certificates to install.
      */
     int  (*install_certificates) ( const DerEncodedCertificate* certificates, size_t length );
+
     /**
      * Notifies the HAL that a list of certificates used for SUPL connections are revoked. It is
      * expected that the given set of certificates is removed from the internal store of the HAL.
@@ -901,61 +1031,75 @@ typedef struct {
      */
     int  (*revoke_certificates) ( const Sha1CertificateFingerprint* fingerprints, size_t length );
 } SuplCertificateInterface;
+
 /** Represents an NI request */
 typedef struct {
     /** set to sizeof(GpsNiNotification) */
     size_t          size;
+
     /**
      * An ID generated by HAL to associate NI notifications and UI
      * responses
      */
     int             notification_id;
+
     /**
      * An NI type used to distinguish different categories of NI
      * events, such as GPS_NI_TYPE_VOICE, GPS_NI_TYPE_UMTS_SUPL, ...
      */
     GpsNiType       ni_type;
+
     /**
      * Notification/verification options, combinations of GpsNiNotifyFlags constants
      */
     GpsNiNotifyFlags notify_flags;
+
     /**
      * Timeout period to wait for user response.
      * Set to 0 for no time out limit.
      */
     int             timeout;
+
     /**
      * Default response when time out.
      */
     GpsUserResponseType default_response;
+
     /**
      * Requestor ID
      */
     char            requestor_id[GPS_NI_SHORT_STRING_MAXLEN];
+
     /**
      * Notification message. It can also be used to store client_id in some cases
      */
     char            text[GPS_NI_LONG_STRING_MAXLEN];
+
     /**
      * Client name decoding scheme
      */
     GpsNiEncodingType requestor_id_encoding;
+
     /**
      * Client name decoding scheme
      */
     GpsNiEncodingType text_encoding;
+
     /**
      * A pointer to extra data. Format:
      * key_1 = value_1
      * key_2 = value_2
      */
     char           extras[GPS_NI_LONG_STRING_MAXLEN];
+
 } GpsNiNotification;
+
 /**
  * Callback with NI notification. Can only be called from a thread created by
  * create_thread_cb.
  */
 typedef void (*gps_ni_notify_callback)(GpsNiNotification *notification);
+
 /** GPS NI callback structure. */
 typedef struct
 {
@@ -965,6 +1109,7 @@ typedef struct
     gps_ni_notify_callback notify_cb;
     gps_create_thread create_thread_cb;
 } GpsNiCallbacks;
+
 /**
  * Extended interface for Network-initiated (NI) support.
  */
@@ -972,13 +1117,17 @@ typedef struct
 {
     /** set to sizeof(GpsNiInterface) */
     size_t          size;
+
    /** Registers the callbacks for HAL to use. */
    void (*init) (GpsNiCallbacks *callbacks);
+
    /** Sends a response to HAL. */
    void (*respond) (int notif_id, GpsUserResponseType user_response);
 } GpsNiInterface;
+
 struct gps_device_t {
     struct hw_device_t common;
+
     /**
      * Set the provided lights to the provided values.
      *
@@ -986,17 +1135,22 @@ struct gps_device_t {
      */
     const GpsInterface* (*get_gps_interface)(struct gps_device_t* dev);
 };
+
 #define AGPS_RIL_REQUEST_SETID_IMSI     (1<<0L)
 #define AGPS_RIL_REQUEST_SETID_MSISDN   (1<<1L)
+
 #define AGPS_RIL_REQUEST_REFLOC_CELLID  (1<<0L)
 #define AGPS_RIL_REQUEST_REFLOC_MAC     (1<<1L)
+
 typedef void (*agps_ril_request_set_id)(uint32_t flags);
 typedef void (*agps_ril_request_ref_loc)(uint32_t flags);
+
 typedef struct {
     agps_ril_request_set_id request_setid;
     agps_ril_request_ref_loc request_refloc;
     gps_create_thread create_thread_cb;
 } AGpsRilCallbacks;
+
 /** Extended interface for AGPS_RIL support. */
 typedef struct {
     /** set to sizeof(AGpsRilInterface) */
@@ -1006,6 +1160,7 @@ typedef struct {
      * to the implementation of this interface.
      */
     void  (*init)( AGpsRilCallbacks* callbacks );
+
     /**
      * Sets the reference location.
      */
@@ -1014,21 +1169,25 @@ typedef struct {
      * Sets the set ID.
      */
     void (*set_set_id) (AGpsSetIDType type, const char* setid);
+
     /**
      * Send network initiated message.
      */
     void (*ni_message) (uint8_t *msg, size_t len);
+
     /**
      * Notify GPS of network status changes.
      * These parameters match values in the android.net.NetworkInfo class.
      */
     void (*update_network_state) (int connected, int type, int roaming, const char* extra_info);
+
     /**
      * Notify GPS of network status changes.
      * These parameters match values in the android.net.NetworkInfo class.
      */
     void (*update_network_availability) (int avaiable, const char* apn);
 } AGpsRilInterface;
+
 /**
  * GPS Geofence.
  *      There are 3 states associated with a Geofence: Inside, Outside, Unknown.
@@ -1105,14 +1264,17 @@ typedef struct {
 #define GPS_GEOFENCE_ENTERED     (1<<0L)
 #define GPS_GEOFENCE_EXITED      (1<<1L)
 #define GPS_GEOFENCE_UNCERTAIN   (1<<2L)
+
 #define GPS_GEOFENCE_UNAVAILABLE (1<<0L)
 #define GPS_GEOFENCE_AVAILABLE   (1<<1L)
+
 #define GPS_GEOFENCE_OPERATION_SUCCESS           0
 #define GPS_GEOFENCE_ERROR_TOO_MANY_GEOFENCES -100
 #define GPS_GEOFENCE_ERROR_ID_EXISTS          -101
 #define GPS_GEOFENCE_ERROR_ID_UNKNOWN         -102
 #define GPS_GEOFENCE_ERROR_INVALID_TRANSITION -103
 #define GPS_GEOFENCE_ERROR_GENERIC            -149
+
 /**
  * The callback associated with the geofence.
  * Parameters:
@@ -1132,6 +1294,7 @@ typedef struct {
  */
 typedef void (*gps_geofence_transition_callback) (int32_t geofence_id,  GpsLocation* location,
         int32_t transition, GpsUtcTime timestamp);
+
 /**
  * The callback associated with the availability of the GPS system for geofencing
  * monitoring. If the GPS system determines that it cannot monitor geofences
@@ -1143,6 +1306,7 @@ typedef void (*gps_geofence_transition_callback) (int32_t geofence_id,  GpsLocat
  *  last_location - Last known location.
  */
 typedef void (*gps_geofence_status_callback) (int32_t status, GpsLocation* last_location);
+
 /**
  * The callback associated with the add_geofence call.
  *
@@ -1156,6 +1320,7 @@ typedef void (*gps_geofence_status_callback) (int32_t status, GpsLocation* last_
  *          GPS_GEOFENCE_ERROR_GENERIC - for other errors.
  */
 typedef void (*gps_geofence_add_callback) (int32_t geofence_id, int32_t status);
+
 /**
  * The callback associated with the remove_geofence call.
  *
@@ -1166,6 +1331,8 @@ typedef void (*gps_geofence_add_callback) (int32_t geofence_id, int32_t status);
  *          GPS_GEOFENCE_ERROR_GENERIC for others.
  */
 typedef void (*gps_geofence_remove_callback) (int32_t geofence_id, int32_t status);
+
+
 /**
  * The callback associated with the pause_geofence call.
  *
@@ -1178,6 +1345,7 @@ typedef void (*gps_geofence_remove_callback) (int32_t geofence_id, int32_t statu
  *          GPS_GEOFENCE_ERROR_GENERIC for others.
  */
 typedef void (*gps_geofence_pause_callback) (int32_t geofence_id, int32_t status);
+
 /**
  * The callback associated with the resume_geofence call.
  *
@@ -1188,6 +1356,7 @@ typedef void (*gps_geofence_pause_callback) (int32_t geofence_id, int32_t status
  *          GPS_GEOFENCE_ERROR_GENERIC for others.
  */
 typedef void (*gps_geofence_resume_callback) (int32_t geofence_id, int32_t status);
+
 typedef struct {
     gps_geofence_transition_callback geofence_transition_callback;
     gps_geofence_status_callback geofence_status_callback;
@@ -1197,15 +1366,18 @@ typedef struct {
     gps_geofence_resume_callback geofence_resume_callback;
     gps_create_thread create_thread_cb;
 } GpsGeofenceCallbacks;
+
 /** Extended interface for GPS_Geofencing support */
 typedef struct {
    /** set to sizeof(GpsGeofencingInterface) */
    size_t          size;
+
    /**
     * Opens the geofence interface and provides the callback routines
     * to the implementation of this interface.
     */
    void  (*init)( GpsGeofenceCallbacks* callbacks );
+
    /**
     * Add a geofence area. This api currently supports circular geofences.
     * Parameters:
@@ -1238,12 +1410,14 @@ typedef struct {
    void (*add_geofence_area) (int32_t geofence_id, double latitude, double longitude,
        double radius_meters, int last_transition, int monitor_transitions,
        int notification_responsiveness_ms, int unknown_timer_ms);
+
    /**
     * Pause monitoring a particular geofence.
     * Parameters:
     *   geofence_id - The id for the geofence.
     */
    void (*pause_geofence) (int32_t geofence_id);
+
    /**
     * Resume monitoring a particular geofence.
     * Parameters:
@@ -1255,6 +1429,7 @@ typedef struct {
     *       add_geofence_area call.
     */
    void (*resume_geofence) (int32_t geofence_id, int monitor_transitions);
+
    /**
     * Remove a geofence area. After the function returns, no notifications
     * should be sent.
@@ -1263,6 +1438,7 @@ typedef struct {
     */
    void (*remove_geofence_area) (int32_t geofence_id);
 } GpsGeofencingInterface;
+
 /**
  * Legacy struct to represent an estimate of the GPS clock time.
  * Deprecated, to be removed in the next Android release.
@@ -1282,17 +1458,20 @@ typedef struct {
     double drift_nsps;
     double drift_uncertainty_nsps;
 } GpsClock;
+
 /**
  * Represents an estimate of the GPS clock time.
  */
 typedef struct {
     /** set to sizeof(GnssClock) */
     size_t size;
+
     /**
      * A set of flags indicating the validity of the fields in this data
      * structure.
      */
     GnssClockFlags flags;
+
     /**
      * Leap second data.
      * The sign of the value is defined by the following equation:
@@ -1302,6 +1481,7 @@ typedef struct {
      * If the data is available 'flags' must contain GNSS_CLOCK_HAS_LEAP_SECOND.
      */
     int16_t leap_second;
+
     /**
      * The GNSS receiver internal clock value. This is the local hardware clock
      * value.
@@ -1322,6 +1502,7 @@ typedef struct {
      * This field is mandatory.
      */
     int64_t time_ns;
+
     /**
      * 1-Sigma uncertainty associated with the clock's time in nanoseconds.
      * The uncertainty is represented as an absolute (single sided) value.
@@ -1333,6 +1514,7 @@ typedef struct {
      * per GNSS_CLOCK_HAS_TIME_UNCERTAINTY flag, or provided & set to 0.)
      */
     double time_uncertainty_ns;
+
     /**
      * The difference between hardware clock ('time' field) inside GPS receiver
      * and the true GPS time since 0000Z, January 6, 1980, in nanoseconds.
@@ -1349,6 +1531,7 @@ typedef struct {
      * 'flags' must contain GNSS_CLOCK_HAS_FULL_BIAS.
      */
     int64_t full_bias_ns;
+
     /**
      * Sub-nanosecond bias.
      * The error estimate for the sum of this and the full_bias_ns is the
@@ -1359,6 +1542,7 @@ typedef struct {
      * estimated GPS time.
      */
     double bias_ns;
+
     /**
      * 1-Sigma uncertainty associated with the local estimate of GPS time (clock
      * bias) in nanoseconds. The uncertainty is represented as an absolute
@@ -1369,6 +1553,7 @@ typedef struct {
      * has estimated GPS time.
      */
     double bias_uncertainty_ns;
+
     /**
      * The clock's drift in nanoseconds (per second).
      *
@@ -1382,6 +1567,7 @@ typedef struct {
      * This value is mandatory if the receiver has estimated GNSS time
      */
     double drift_nsps;
+
     /**
      * 1-Sigma uncertainty associated with the clock's drift in nanoseconds (per second).
      * The uncertainty is represented as an absolute (single sided) value.
@@ -1391,6 +1577,7 @@ typedef struct {
      * field is mandatory and must be populated.
      */
     double drift_uncertainty_nsps;
+
     /**
      * When there are any discontinuities in the HW clock, this field is
      * mandatory.
@@ -1421,7 +1608,9 @@ typedef struct {
      * measurements, from consecutive GnssData reports.
      */
     uint32_t hw_clock_discontinuity_count;
+
 } GnssClock;
+
 /**
  * Legacy struct to represent a GPS Measurement, it contains raw and computed
  * information.
@@ -1464,6 +1653,7 @@ typedef struct {
     double azimuth_uncertainty_deg;
     bool used_in_fix;
 } GpsMeasurement;
+
 /**
  * Represents a GNSS Measurement, it contains raw and computed information.
  *
@@ -1476,18 +1666,22 @@ typedef struct {
 typedef struct {
     /** set to sizeof(GpsMeasurement) */
     size_t size;
+
     /** A set of flags indicating the validity of the fields in this data structure. */
     GnssMeasurementFlags flags;
+
     /**
      * Satellite vehicle ID number, as defined in GnssSvInfo::svid
      * This is a mandatory value.
      */
     int16_t svid;
+
     /**
      * Defines the constellation of the given SV. Value should be one of those
      * GNSS_CONSTELLATION_* constants
      */
     GnssConstellationType constellation;
+
     /**
      * Time offset at which the measurement was taken in nanoseconds.
      * The reference receiver's time is specified by GpsData::clock::time_ns and should be
@@ -1500,6 +1694,7 @@ typedef struct {
      * This is a mandatory value.
      */
     double time_offset_ns;
+
     /**
      * Per satellite sync state. It represents the current sync state for the associated satellite.
      * Based on the sync state, the 'received GPS tow' field should be interpreted accordingly.
@@ -1507,6 +1702,7 @@ typedef struct {
      * This is a mandatory value.
      */
     GnssMeasurementState state;
+
     /**
      * The received GNSS Time-of-Week at the measurement time, in nanoseconds.
      * Ensure that this field is independent (see comment at top of
@@ -1575,12 +1771,14 @@ typedef struct {
      *     Message      : [ 0  1s ] : GNSS_MEASUREMENT_STATE_SBAS_SYNC is set
     */
     int64_t received_sv_time_in_ns;
+
     /**
      * 1-Sigma uncertainty of the Received GPS Time-of-Week in nanoseconds.
      *
      * This value must be populated if 'state' != GPS_MEASUREMENT_STATE_UNKNOWN.
      */
     int64_t received_sv_time_uncertainty_in_ns;
+
     /**
      * Carrier-to-noise density in dB-Hz, typically in the range [0, 63].
      * It contains the measured C/N0 value for the signal at the antenna port.
@@ -1588,6 +1786,7 @@ typedef struct {
      * This is a mandatory value.
      */
     double c_n0_dbhz;
+
     /**
      * Pseudorange rate at the timestamp in m/s. The correction of a given
      * Pseudorange Rate value includes corrections for receiver and satellite
@@ -1614,6 +1813,7 @@ typedef struct {
      * 35 dB-Hz.
      */
     double pseudorange_rate_mps;
+
     /**
      * 1-Sigma uncertainty of the pseudorange_rate_mps.
      * The uncertainty is represented as an absolute (single sided) value.
@@ -1621,6 +1821,7 @@ typedef struct {
      * This is a mandatory value.
      */
     double pseudorange_rate_uncertainty_mps;
+
     /**
      * Accumulated delta range's state. It indicates whether ADR is reset or there is a cycle slip
      * (indicating loss of lock).
@@ -1628,6 +1829,7 @@ typedef struct {
      * This is a mandatory value.
      */
     GnssAccumulatedDeltaRangeState accumulated_delta_range_state;
+
     /**
      * Accumulated delta range since the last channel reset in meters.
      * A positive value indicates that the SV is moving away from the receiver.
@@ -1641,11 +1843,13 @@ typedef struct {
      *      'accumulated delta range state' == GPS_ADR_STATE_VALID.
      */
     double accumulated_delta_range_m;
+
     /**
      * 1-Sigma uncertainty of the accumulated delta range in meters.
      * This value must be populated if 'accumulated delta range state' != GPS_ADR_STATE_UNKNOWN.
      */
     double accumulated_delta_range_uncertainty_m;
+
     /**
      * Carrier frequency at which codes and messages are modulated, it can be L1 or L2.
      * If the field is not set, the carrier frequency is assumed to be L1.
@@ -1654,6 +1858,7 @@ typedef struct {
      * GNSS_MEASUREMENT_HAS_CARRIER_FREQUENCY.
      */
     float carrier_frequency_hz;
+
     /**
      * The number of full carrier cycles between the satellite and the receiver.
      * The reference frequency is given by the field 'carrier_frequency_hz'.
@@ -1664,6 +1869,7 @@ typedef struct {
      * GNSS_MEASUREMENT_HAS_CARRIER_CYCLES.
      */
     int64_t carrier_cycles;
+
     /**
      * The RF phase detected by the receiver, in the range [0.0, 1.0].
      * This is usually the fractional part of the complete carrier phase measurement.
@@ -1675,12 +1881,14 @@ typedef struct {
      * GNSS_MEASUREMENT_HAS_CARRIER_PHASE.
      */
     double carrier_phase;
+
     /**
      * 1-Sigma uncertainty of the carrier-phase.
      * If the data is available, 'flags' must contain
      * GNSS_MEASUREMENT_HAS_CARRIER_PHASE_UNCERTAINTY.
      */
     double carrier_phase_uncertainty;
+
     /**
      * An enumeration that indicates the 'multipath' state of the event.
      *
@@ -1701,6 +1909,7 @@ typedef struct {
      * signals that are tracked and do not contain multipath.
      */
     GnssMultipathIndicator multipath_indicator;
+
     /**
      * Signal-to-noise ratio at correlator output in dB.
      * If the data is available, 'flags' must contain GNSS_MEASUREMENT_HAS_SNR.
@@ -1709,6 +1918,7 @@ typedef struct {
      */
     double snr_db;
 } GnssMeasurement;
+
 /**
  * Legacy struct to represents a reading of GPS measurements.
  * Deprecated, to be removed in the next Android release.
@@ -1719,9 +1929,11 @@ typedef struct {
     size_t size;
     size_t measurement_count;
     GpsMeasurement measurements[GPS_MAX_MEASUREMENT];
+
     /** The GPS clock time reading. */
     GpsClock clock;
 } GpsData;
+
 /**
  * Represents a reading of GNSS measurements. For devices where GnssSystemInfo's
  * year_of_hw is set to 2016+, it is mandatory that these be provided, on
@@ -1733,13 +1945,17 @@ typedef struct {
 typedef struct {
     /** set to sizeof(GnssData) */
     size_t size;
+
     /** Number of measurements. */
     size_t measurement_count;
+
     /** The array of measurements. */
     GnssMeasurement measurements[GNSS_MAX_MEASUREMENT];
+
     /** The GPS clock time reading. */
     GnssClock clock;
 } GnssData;
+
 /**
  * The legacy callback for to report measurements from the HAL.
  *
@@ -1750,6 +1966,7 @@ typedef struct {
  *    data - A data structure containing the measurements.
  */
 typedef void (*gps_measurement_callback) (GpsData* data);
+
 /**
  * The callback for to report measurements from the HAL.
  *
@@ -1757,21 +1974,25 @@ typedef void (*gps_measurement_callback) (GpsData* data);
  *    data - A data structure containing the measurements.
  */
 typedef void (*gnss_measurement_callback) (GnssData* data);
+
 typedef struct {
     /** set to sizeof(GpsMeasurementCallbacks) */
     size_t size;
     gps_measurement_callback measurement_callback;
     gnss_measurement_callback gnss_measurement_callback;
 } GpsMeasurementCallbacks;
+
 #define GPS_MEASUREMENT_OPERATION_SUCCESS          0
 #define GPS_MEASUREMENT_ERROR_ALREADY_INIT      -100
 #define GPS_MEASUREMENT_ERROR_GENERIC           -101
+
 /**
  * Extended interface for GPS Measurements support.
  */
 typedef struct {
     /** Set to sizeof(GpsMeasurementInterface) */
     size_t size;
+
     /**
      * Initializes the interface and registers the callback routines with the HAL.
      * After a successful call to 'init' the HAL must begin to provide updates at its own phase.
@@ -1784,6 +2005,7 @@ typedef struct {
      *              will not generate any updates upon returning this error code.
      */
     int (*init) (GpsMeasurementCallbacks* callbacks);
+
     /**
      * Stops updates from the HAL, and unregisters the callback routines.
      * After a call to stop, the previously registered callbacks must be considered invalid by the
@@ -1791,7 +2013,9 @@ typedef struct {
      * If stop is invoked without a previous 'init', this function should perform no work.
      */
     void (*close) ();
+
 } GpsMeasurementInterface;
+
 /**
  * Legacy struct to represents a GPS navigation message (or a fragment of it).
  * Deprecated, to be removed in the next Android release.
@@ -1808,26 +2032,31 @@ typedef struct {
     size_t data_length;
     uint8_t* data;
 } GpsNavigationMessage;
+
 /** Represents a GPS navigation message (or a fragment of it). */
 typedef struct {
     /** set to sizeof(GnssNavigationMessage) */
     size_t size;
+
     /**
      * Satellite vehicle ID number, as defined in GnssSvInfo::svid
      * This is a mandatory value.
      */
     int16_t svid;
+
     /**
      * The type of message contained in the structure.
      * This is a mandatory value.
      */
     GnssNavigationMessageType type;
+
     /**
      * The status of the received navigation message.
      * No need to send any navigation message that contains words with parity error and cannot be
      * corrected.
      */
     NavigationMessageStatus status;
+
     /**
      * Message identifier. It provides an index so the complete Navigation
      * Message can be assembled.
@@ -1849,6 +2078,7 @@ typedef struct {
      *   number in the range of 1-24
      */
     int16_t message_id;
+
     /**
      * Sub-message identifier. If required by the message 'type', this value
      * contains a sub-index within the current message (or frame) that is being
@@ -1865,6 +2095,7 @@ typedef struct {
      * - For Galileo I/NAV, this refers to the word type in the range 1-10+
      */
     int16_t submessage_id;
+
     /**
      * The length of the data (in bytes) contained in the current message.
      * If this value is different from zero, 'data' must point to an array of the same size.
@@ -1873,6 +2104,7 @@ typedef struct {
      * This is a mandatory value.
      */
     size_t data_length;
+
     /**
      * The data of the reported GPS message. The bytes (or words) specified
      * using big endian format (MSB first).
@@ -1895,7 +2127,9 @@ typedef struct {
      *   into 29 bytes, with MSB first (skip B229-B232).
      */
     uint8_t* data;
+
 } GnssNavigationMessage;
+
 /**
  * The legacy callback to report an available fragment of a GPS navigation
  * messages from the HAL.
@@ -1907,6 +2141,7 @@ typedef struct {
  *      message - The GPS navigation submessage/subframe representation.
  */
 typedef void (*gps_navigation_message_callback) (GpsNavigationMessage* message);
+
 /**
  * The callback to report an available fragment of a GPS navigation messages from the HAL.
  *
@@ -1914,21 +2149,25 @@ typedef void (*gps_navigation_message_callback) (GpsNavigationMessage* message);
  *      message - The GPS navigation submessage/subframe representation.
  */
 typedef void (*gnss_navigation_message_callback) (GnssNavigationMessage* message);
+
 typedef struct {
     /** set to sizeof(GpsNavigationMessageCallbacks) */
     size_t size;
     gps_navigation_message_callback navigation_message_callback;
     gnss_navigation_message_callback gnss_navigation_message_callback;
 } GpsNavigationMessageCallbacks;
+
 #define GPS_NAVIGATION_MESSAGE_OPERATION_SUCCESS             0
 #define GPS_NAVIGATION_MESSAGE_ERROR_ALREADY_INIT         -100
 #define GPS_NAVIGATION_MESSAGE_ERROR_GENERIC              -101
+
 /**
  * Extended interface for GPS navigation message reporting support.
  */
 typedef struct {
     /** Set to sizeof(GpsNavigationMessageInterface) */
     size_t size;
+
     /**
      * Initializes the interface and registers the callback routines with the HAL.
      * After a successful call to 'init' the HAL must begin to provide updates as they become
@@ -1942,6 +2181,7 @@ typedef struct {
      *              the HAL will not generate any updates upon returning this error code.
      */
     int (*init) (GpsNavigationMessageCallbacks* callbacks);
+
     /**
      * Stops updates from the HAL, and unregisters the callback routines.
      * After a call to stop, the previously registered callbacks must be considered invalid by the
@@ -1949,13 +2189,16 @@ typedef struct {
      * If stop is invoked without a previous 'init', this function should perform no work.
      */
     void (*close) ();
+
 } GpsNavigationMessageInterface;
+
 /**
  * Interface for passing GNSS configuration contents from platform to HAL.
  */
 typedef struct {
     /** Set to sizeof(GnssConfigurationInterface) */
     size_t size;
+
     /**
      * Deliver GNSS configuration contents to HAL.
      * Parameters:
@@ -1971,5 +2214,7 @@ typedef struct {
      */
     void (*configuration_update) (const char* config_data, int32_t length);
 } GnssConfigurationInterface;
+
 __END_DECLS
+
 #endif /* ANDROID_INCLUDE_HARDWARE_GPS_H */
