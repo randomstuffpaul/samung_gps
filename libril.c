@@ -152,13 +152,13 @@ _DWORD *__fastcall sub_6DB8(int a1, __int64 a2, int *a3);
 __int64 __fastcall sub_71B4(int a1);
 __int64 (__fastcall *__fastcall RIL_register_socket(__int64 (__fastcall *result)(_QWORD, _QWORD, __int64), int a2, unsigned int a3, __int64 a4))(_QWORD, _QWORD, __int64);
 __int64 __fastcall RIL_onRequestAck(__int64 a1);
-__int64 __fastcall sub_7990(__int64 a1, char a2);
+__int64 __fastcall sub_795C(__int64 a1, char a2);
 void __fastcall RIL_onRequestComplete(__int64 a1, int a2, __int64 a3, __int64 a4);
 const char *__fastcall requestToString(int a1);
-__int64 sub_8570();
+__int64 sub_853C();
 __int64 __fastcall RIL_onUnsolicitedResponse(android *a1, __int64 a2, __int64 a3);
 __int64 __fastcall RIL_requestTimedCallback_0(__int64 a1, __int64 a2, __int128 *a3);
-__int64 __fastcall sub_8B98(__int64 result);
+__int64 __fastcall sub_8B64(__int64 result);
 const char *failCauseToString();
 const char *__fastcall radioStateToString(unsigned int a1);
 const char *__fastcall callStateToString(unsigned int a1);
@@ -166,17 +166,18 @@ const char *__fastcall rilSocketIdToString(int a1);
 __int64 __fastcall rilEventAddWakeup_helper(__int64 a1);
 __int64 __fastcall listenCallback_helper(int a1, __int64 a2, void *a3);
 __int64 __fastcall blockingWrite_helper(int, void *, unsigned __int64); // idb
-signed __int64 __fastcall sub_96C0(int a1, __int64 a2, unsigned __int64 a3);
-__int64 sub_97B4();
-void __fastcall sub_9980(android::Parcel *a1, unsigned int *a2);
-__int64 __fastcall sub_EA3C(android::Parcel *a1, int *a2);
-__int64 __fastcall sub_EBAC(android::Parcel *this, _DWORD *a2);
-__int64 __fastcall sub_EC64(android::Parcel *this, __int64 a2, unsigned __int64 a3);
-__int64 __fastcall sub_EEB8(android::Parcel *a1, char *a2);
-__int64 __fastcall sub_F0E4(android::Parcel *this, __int64 a2, unsigned __int64 a3);
-__int64 __fastcall sub_F42C(unsigned int a1, __int64 a2, int a3);
-__int64 __fastcall sub_F540(__int64 result, unsigned __int64 a2);
-__int64 __fastcall sub_10808(); // weak
+signed __int64 __fastcall sub_968C(int a1, __int64 a2, unsigned __int64 a3);
+__int64 sub_9780();
+void __fastcall sub_9990(android::Parcel *a1, unsigned int *a2);
+__int64 __fastcall sub_E948(android::Parcel *a1, int *a2);
+__int64 __fastcall sub_E9D8(android::Parcel *a1, int a2, __int64 a3);
+__int64 __fastcall sub_EB54(android::Parcel *this, _DWORD *a2);
+__int64 __fastcall sub_EC0C(android::Parcel *this, __int64 a2, unsigned __int64 a3);
+__int64 __fastcall sub_EE60(android::Parcel *a1, char *a2);
+__int64 __fastcall sub_F08C(android::Parcel *this, __int64 a2, unsigned __int64 a3);
+__int64 __fastcall sub_F3D4(unsigned int a1, __int64 a2, int a3);
+__int64 __fastcall sub_F4E8(__int64 result, unsigned __int64 a2);
+__int64 __fastcall sub_107B0(); // weak
 __int64 ril_event_init(void); // idb
 __int64 __fastcall ril_event_set(__int64 a1, int a2, char a3, __int64 a4, __int64 a5);
 __int64 __fastcall ril_event_add(__int64 a1);
@@ -220,7 +221,7 @@ void __fastcall RilSapSocket::sendDisconnect(RilSapSocket *this);
 void __fastcall RilSapSocket::dispatchDisconnect(__int64 a1, __int64 a2);
 __int64 __fastcall RilSapSocket::onCommandsSocketClosed(RilSapSocket *__hidden this); // idb
 signed __int64 __fastcall pb_read(__int64 a1, __int64 a2, unsigned __int64 a3);
-signed __int64 __fastcall sub_12798(__int64 a1, _OWORD *a2, unsigned __int64 a3);
+signed __int64 __fastcall sub_12730(__int64 a1, _OWORD *a2, unsigned __int64 a3);
 // __int64 __usercall pb_istream_from_buffer@<X0>(__int64 result@<X0>, __int64 a2@<X1>, _QWORD *a3@<X8>);
 signed __int64 __fastcall pb_decode_varint(__int64 a1, _QWORD *a2);
 signed __int64 __fastcall pb_decode_tag(__int64 a1, unsigned int *a2, unsigned int *a3, _BYTE *a4);
@@ -228,27 +229,27 @@ signed __int64 __fastcall pb_skip_field(__int64 a1, int a2);
 signed __int64 __fastcall pb_make_string_substream(__int64 a1, _OWORD *a2);
 __int64 __fastcall pb_close_string_substream(__int64 result, __int64 a2);
 signed __int64 __fastcall pb_decode_noinit(__int64 a1, __int64 a2, __int64 a3);
-__int64 __fastcall sub_13538(__int64 result, int a2, _QWORD *a3);
+__int64 __fastcall sub_134D0(__int64 result, int a2, _QWORD *a3);
 __int64 __fastcall pb_decode(__int64 a1, unsigned __int8 *a2, void **a3);
-unsigned __int8 *__fastcall sub_13D1C(unsigned __int8 *result, _QWORD *a2);
+unsigned __int8 *__fastcall sub_13CB4(unsigned __int8 *result, _QWORD *a2);
 void __fastcall pb_release(__int64 a1, void **a2);
 void __fastcall pb_decode_delimited(__int64 a1, unsigned __int8 *a2, void **a3);
 signed __int64 __fastcall pb_decode_svarint(__int64 a1, unsigned __int64 *a2);
 signed __int64 __fastcall pb_decode_fixed32(__int64 a1, __int64 a2);
 signed __int64 __fastcall pb_decode_fixed64(__int64 a1, __int64 a2);
-signed __int64 __fastcall sub_14430(__int64 a1, __int64 a2, _BYTE *a3);
-signed __int64 __fastcall sub_145A0(__int64 a1, __int64 a2, _QWORD *a3);
-signed __int64 __fastcall sub_146E8(__int64 a1, __int64 a2, unsigned __int64 *a3);
-signed __int64 __fastcall sub_14838(__int64 a1, __int64 a2, __int64 a3);
-signed __int64 __fastcall sub_1495C(__int64 a1, __int64 a2, __int64 a3);
-signed __int64 __fastcall sub_14A80(__int64 a1, __int64 a2, void **a3);
-signed __int64 __fastcall sub_14C4C(__int64 a1, __int64 a2, void **a3);
-signed __int64 __fastcall sub_14E18(__int64 a1, __int64 a2, void **a3);
+signed __int64 __fastcall sub_143C8(__int64 a1, __int64 a2, _BYTE *a3);
+signed __int64 __fastcall sub_14538(__int64 a1, __int64 a2, _QWORD *a3);
+signed __int64 __fastcall sub_14680(__int64 a1, __int64 a2, unsigned __int64 *a3);
+signed __int64 __fastcall sub_147D0(__int64 a1, __int64 a2, __int64 a3);
+signed __int64 __fastcall sub_148F4(__int64 a1, __int64 a2, __int64 a3);
+signed __int64 __fastcall sub_14A18(__int64 a1, __int64 a2, void **a3);
+signed __int64 __fastcall sub_14BE4(__int64 a1, __int64 a2, void **a3);
+signed __int64 __fastcall sub_14DB0(__int64 a1, __int64 a2, void **a3);
 // signed __int64 (__fastcall *__usercall pb_ostream_from_buffer@<X0>(signed __int64 (__fastcall *result)(__int64 a1, char *a2, unsigned __int64 a3)@<X0>, signed __int64 (__fastcall *a2)(__int64 a1, char *a2, unsigned __int64 a3)@<X1>, signed __int64 (__fastcall **a3)(__int64 a1, char *a2, unsigned __int64 a3)@<X8>))(__int64 a1, char *a2, unsigned __int64 a3);
-signed __int64 __fastcall sub_14F40(__int64 a1, char *a2, unsigned __int64 a3);
+signed __int64 __fastcall sub_14ED8(__int64 a1, char *a2, unsigned __int64 a3);
 signed __int64 __fastcall pb_write(__int64 (**a1)(void), __int64 a2, __int64 a3);
 signed __int64 __fastcall pb_encode(_QWORD *a1, unsigned __int8 *a2, char *a3);
-signed __int64 __fastcall sub_15178(_QWORD *a1, unsigned __int8 *a2, _QWORD *a3);
+signed __int64 __fastcall sub_15110(_QWORD *a1, unsigned __int8 *a2, _QWORD *a3);
 signed __int64 __fastcall pb_encode_submessage(_QWORD *a1, unsigned __int8 *a2, char *a3);
 signed __int64 __fastcall pb_get_encoded_size(_QWORD *a1, unsigned __int8 *a2, char *a3);
 signed __int64 __fastcall pb_encode_varint(_QWORD *a1, unsigned __int64 a2);
@@ -258,14 +259,14 @@ signed __int64 __fastcall pb_encode_fixed64(__int64 (**a1)(void));
 signed __int64 __fastcall pb_encode_tag(_QWORD *a1, unsigned int a2, unsigned int a3);
 signed __int64 __fastcall pb_encode_tag_for_field(_QWORD *a1, unsigned __int8 *a2);
 signed __int64 __fastcall pb_encode_string(_QWORD *a1, __int64 a2, unsigned __int64 a3);
-signed __int64 __fastcall sub_15B84(_QWORD *a1, __int64 a2, unsigned __int64 *a3);
-signed __int64 __fastcall sub_15BE4(_QWORD *a1, __int64 a2, unsigned __int64 *a3);
-signed __int64 __fastcall sub_15C24(_QWORD *a1, __int64 a2, signed int *a3);
-signed __int64 __fastcall sub_15C6C(__int64 (**a1)(void));
-signed __int64 __fastcall sub_15D14(__int64 (**a1)(void));
-signed __int64 __fastcall sub_15DBC(_QWORD *a1, __int64 a2, unsigned __int64 *a3);
-signed __int64 __fastcall sub_15FD0(_QWORD *a1, __int64 a2, __int64 a3);
-signed __int64 __fastcall sub_160D0(_QWORD *a1, __int64 a2, char *a3);
+signed __int64 __fastcall sub_15B1C(_QWORD *a1, __int64 a2, unsigned __int64 *a3);
+signed __int64 __fastcall sub_15B7C(_QWORD *a1, __int64 a2, unsigned __int64 *a3);
+signed __int64 __fastcall sub_15BBC(_QWORD *a1, __int64 a2, signed int *a3);
+signed __int64 __fastcall sub_15C04(__int64 (**a1)(void));
+signed __int64 __fastcall sub_15CAC(__int64 (**a1)(void));
+signed __int64 __fastcall sub_15D54(_QWORD *a1, __int64 a2, unsigned __int64 *a3);
+signed __int64 __fastcall sub_15F68(_QWORD *a1, __int64 a2, __int64 a3);
+signed __int64 __fastcall sub_16068(_QWORD *a1, __int64 a2, char *a3);
 // __int64 _cxa_finalize(void); weak
 // __int64 _register_atfork(void); weak
 // __int64 _cxa_atexit(void); weak
@@ -356,162 +357,162 @@ signed __int64 __fastcall sub_160D0(_QWORD *a1, __int64 a2, char *a3);
 //-------------------------------------------------------------------------
 // Data declarations
 
-_UNKNOWN loc_90E0; // weak
-__int128 xmmword_16100 = 0x20000000000000001000010000LL; // weak
-__int128 xmmword_16110 = 0x20000000010000001000010000LL; // weak
-_UNKNOWN unk_19720; // weak
-_DWORD dword_19730[8] = { 0, 0, 0, 0, 0, 0, 1, 1 }; // idb
-_DWORD dword_19750[8] = { 3, 3, 3, 6, 6, 6, 6, 6 }; // idb
-_DWORD dword_19770[8] = { 4294967295, 3, 4, 4294967295, 6, 7, 4294967295, 4294967295 }; // idb
-unsigned int dword_197F0[8] = { 0u, 0u, 0u, 5u, 1u, 2u, 2u, 2u }; // idb
+_UNKNOWN loc_90AC; // weak
+__int128 xmmword_16090 = 0x20000000000000001000010000LL; // weak
+__int128 xmmword_160A0 = 0x20000000010000001000010000LL; // weak
+_UNKNOWN unk_196A0; // weak
+_DWORD dword_196B0[8] = { 0, 0, 0, 0, 0, 0, 1, 1 }; // idb
+_DWORD dword_196D0[8] = { 3, 3, 3, 6, 6, 6, 6, 6 }; // idb
+_DWORD dword_196F0[8] = { 4294967295, 3, 4, 4294967295, 6, 7, 4294967295, 4294967295 }; // idb
+unsigned int dword_19770[8] = { 0u, 0u, 0u, 5u, 1u, 2u, 2u, 2u }; // idb
 unsigned int (__fastcall *qword_1D2B0[147])(_QWORD *, _QWORD, _QWORD) =
 {
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3E8LL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3E9LL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3EALL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3EBLL,
-  &loc_A084,
+  &loc_A094,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3ECLL,
-  &loc_A084,
+  &loc_A094,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3EDLL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3EELL,
-  &loc_A5BC,
+  &loc_A5CC,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3EFLL,
-  &loc_A07C,
+  &loc_A08C,
   NULL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3F0LL,
-  &loc_A084,
+  &loc_A094,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3F1LL,
-  &loc_A36C,
+  &loc_A37C,
   NULL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3F2LL,
-  &loc_B078,
+  &loc_B088,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3F3LL,
-  &loc_F648,
+  &loc_F5F0,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3F4LL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3F5LL,
-  &loc_A084,
+  &loc_A094,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3F6LL,
-  &loc_A084,
+  &loc_A094,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3F7LL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3F8LL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3F9LL,
-  &loc_F754,
+  &loc_F6FC,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3FALL,
-  &loc_F8AC,
+  &loc_F854,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3FBLL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3FCLL,
-  &loc_F944,
+  &loc_F8EC,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3FDLL,
-  &loc_B6BC,
+  &loc_B6CC,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3FELL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x3FFLL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x400LL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x401LL,
-  &loc_FB4C,
+  &loc_FAF4,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x402LL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x403LL,
-  &loc_FD40,
+  &loc_FCE8,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x404LL,
-  &loc_B6BC,
+  &loc_B6CC,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x405LL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x406LL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x407LL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x408LL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x409LL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x40ALL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x40BLL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x40CLL,
-  &loc_C5B4,
+  &loc_C5C4,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x40DLL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x40ELL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x40FLL,
-  &loc_9B68,
+  &loc_9B78,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x410LL,
-  &loc_D4B4,
+  &loc_D444,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x411LL,
-  &loc_D804,
+  &loc_D794,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x412LL,
-  &loc_DB7C,
+  &loc_DB0C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x413LL,
-  &loc_101D8,
+  &loc_10180,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x414LL,
-  &loc_A084,
+  &loc_A094,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x415LL,
-  &loc_DEBC,
+  &loc_DE4C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x416LL,
-  &loc_104E0,
+  &loc_10488,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x417LL,
-  &loc_A07C,
+  &loc_A08C,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))0x418LL,
-  &loc_105F0,
+  &loc_10598,
   (unsigned int (__fastcall *)(_QWORD *, _QWORD, _QWORD))1LL
 }; // idb
 char *off_1D750[11] =
@@ -531,25 +532,25 @@ char *off_1D750[11] =
 char *off_1D7B0[6] = { "ACTIVE", "HOLDING", "DIALING", "ALERTING", "INCOMING", "WAITING" }; // weak
 __int64 (__fastcall *off_1D818[8])() =
 {
-  &sub_14430,
-  &sub_145A0,
-  &sub_146E8,
-  &sub_14838,
-  &sub_1495C,
-  &sub_14A80,
-  &sub_14C4C,
-  &sub_14E18
+  &sub_143C8,
+  &sub_14538,
+  &sub_14680,
+  &sub_147D0,
+  &sub_148F4,
+  &sub_14A18,
+  &sub_14BE4,
+  &sub_14DB0
 }; // weak
 __int64 (__fastcall *off_1D860[8])() =
 {
-  &sub_15B84,
-  &sub_15BE4,
-  &sub_15C24,
-  &sub_15C6C,
-  &sub_15D14,
-  &sub_15DBC,
-  &sub_15FD0,
-  &sub_160D0
+  &sub_15B1C,
+  &sub_15B7C,
+  &sub_15BBC,
+  &sub_15C04,
+  &sub_15CAC,
+  &sub_15D54,
+  &sub_15F68,
+  &sub_16068
 }; // weak
 int dword_1E01C = 4294967295; // weak
 _UNKNOWN unk_1E020; // weak
@@ -1488,7 +1489,7 @@ __int64 sub_66F8()
     dword_1EF50 = v5;
     dword_1EF54 = v6;
     fcntl(v5, 4);
-    ril_event_set((__int64)&unk_1EF58, dword_1EF50, 1, (__int64)sub_97B4, 0LL);
+    ril_event_set((__int64)&unk_1EF58, dword_1EF50, 1, (__int64)sub_9780, 0LL);
     ril_event_add((__int64)&unk_1EF58);
     v1 = pthread_self();
     if ( !(unsigned int)pthread_equal(v1, qword_1EDF8) )
@@ -1627,7 +1628,7 @@ LABEL_44:
     exit(-1);
   }
   dword_1EE3C = v13;
-  ril_event_set(qword_1EE58, v13, 0, (__int64)&loc_90E0, (__int64)&unk_1EE38);
+  ril_event_set(qword_1EE58, v13, 0, (__int64)&loc_90AC, (__int64)&unk_1EE38);
   ril_event_add(qword_1EE58);
   v14 = pthread_self();
   if ( !(unsigned int)pthread_equal(v14, qword_1EDF8) )
@@ -1798,7 +1799,7 @@ _DWORD *__fastcall sub_6DB8(int a1, __int64 a2, int *a3)
             android::Parcel::writeInt32((android::Parcel *)&v26, 2);
             v10 = android::Parcel::data((android::Parcel *)&v26);
             v11 = android::Parcel::dataSize((android::Parcel *)&v26);
-            sub_F540(v10, v11);
+            sub_F4E8(v10, v11);
             android::Parcel::~Parcel((android::Parcel *)&v26);
           }
         }
@@ -1854,164 +1855,155 @@ __int64 __fastcall sub_71B4(int a1)
 {
   int v1; // w19
   int v2; // w19
-  void **v3; // x20
+  char **v3; // x20
   signed int v4; // w21
-  _BYTE *v5; // x23
+  char *v5; // x23
   __int64 v6; // x0
   unsigned __int8 v7; // vf
-  void *v8; // x21
+  char *v8; // x21
   int v9; // w4
   signed int v11; // w22
-  void *v12; // x0
+  char *v12; // x0
   signed int v13; // w22
-  void *v14; // x0
+  char *v14; // x0
   signed int v15; // w22
-  void *v16; // x0
+  char *v16; // x0
   signed int v17; // w22
-  void *v18; // x0
+  char *v18; // x0
   __int128 v19; // q0
   unsigned int v20; // w0
   __int64 *v21; // x1
   __int64 v22; // x22
-  signed int j; // w23
+  unsigned int v23; // w0
+  const char **v24; // x1
+  __int64 v25; // x8
   signed int i; // w23
-  int v25; // [xsp+8h] [xbp-118h]
-  signed int v26; // [xsp+Ch] [xbp-114h]
-  __int64 v27; // [xsp+10h] [xbp-110h]
-  int v28; // [xsp+18h] [xbp-108h]
-  int v29; // [xsp+2Ch] [xbp-F4h]
-  int v30; // [xsp+30h] [xbp-F0h]
-  int v31; // [xsp+34h] [xbp-ECh]
-  const char *v32; // [xsp+38h] [xbp-E8h]
-  __int128 v33; // [xsp+40h] [xbp-E0h]
-  __int64 v34; // [xsp+50h] [xbp-D0h]
-  char v35; // [xsp+58h] [xbp-C8h]
-  __int64 v36; // [xsp+C8h] [xbp-58h]
+  int v27; // [xsp+0h] [xbp-120h]
+  signed int v28; // [xsp+4h] [xbp-11Ch]
+  __int64 v29; // [xsp+8h] [xbp-118h]
+  int v30; // [xsp+10h] [xbp-110h]
+  int v31; // [xsp+24h] [xbp-FCh]
+  int v32; // [xsp+28h] [xbp-F8h]
+  int v33; // [xsp+2Ch] [xbp-F4h]
+  __int64 v34; // [xsp+30h] [xbp-F0h]
+  const char *v35; // [xsp+38h] [xbp-E8h]
+  __int128 v36; // [xsp+40h] [xbp-E0h]
+  __int64 v37; // [xsp+50h] [xbp-D0h]
+  char v38; // [xsp+58h] [xbp-C8h]
+  __int64 v39; // [xsp+C8h] [xbp-58h]
 
   v1 = a1;
-  v36 = MEMORY[0];
-  v30 = 110;
-  v31 = 1;
-  v32 = "1";
+  v39 = MEMORY[0];
+  v32 = 110;
+  v33 = 1;
+  v35 = "1";
   __android_log_buf_print();
-  v2 = accept(v1, (struct sockaddr *)&v35, (socklen_t *)&v30);
+  v2 = accept(v1, (struct sockaddr *)&v38, (socklen_t *)&v32);
   if ( v2 & 0x80000000 )
   {
     v9 = *(_DWORD *)__errno();
     return __android_log_buf_print();
   }
-  if ( __recvfrom_chk() != 4 || v26 & 0x80000000 || (v3 = (void **)calloc(v26, 8uLL)) == 0LL )
+  if ( __recvfrom_chk() != 4 || v28 & 0x80000000 || (v3 = (char **)calloc(v28, 8uLL)) == 0LL )
   {
     __android_log_buf_print();
     return close(v2);
   }
-  if ( v26 < 1 )
+  if ( v28 < 1 )
   {
     v8 = 0LL;
 LABEL_19:
-    switch ( (unsigned int)atoi((const char *)v8) )
+    switch ( (unsigned int)atoi(v8) )
     {
       case 0u:
         __android_log_buf_print();
-        sub_F42C(0x3Au, 0LL, 0);
-        goto LABEL_71;
+        sub_F3D4(0x3Au, 0LL, 0);
+        break;
       case 1u:
         __android_log_buf_print();
-        v29 = 0;
-        sub_F42C(0x17u, (__int64)&v29, 4);
+        v31 = 0;
+        sub_F3D4(0x17u, (__int64)&v31, 4);
         if ( dword_1EE40 >= 1 )
         {
           close(dword_1EE40);
           dword_1EE40 = -1;
         }
-        goto LABEL_71;
+        break;
       case 2u:
         __android_log_buf_print();
         RIL_onUnsolicitedResponse((android *)0x3EA, 0LL, 0LL);
-        goto LABEL_71;
+        break;
       case 3u:
         __android_log_buf_print();
-        v19 = xmmword_16110;
-        goto LABEL_54;
+        v19 = xmmword_160A0;
+        goto LABEL_55;
       case 4u:
         __android_log_buf_print();
-        v19 = xmmword_16100;
-LABEL_54:
-        v33 = v19;
+        v19 = xmmword_16090;
+LABEL_55:
+        v36 = v19;
         v20 = 59;
-        v21 = (__int64 *)&v33;
-        v34 = 0x800000000LL;
-        goto LABEL_70;
+        v21 = (__int64 *)&v36;
+        v37 = 0x800000000LL;
+        goto LABEL_61;
       case 5u:
         __android_log_buf_print();
-        v29 = 1;
-        sub_F42C(0x17u, (__int64)&v29, 4);
+        v31 = 1;
+        sub_F3D4(0x17u, (__int64)&v31, 4);
         sleep(2u);
-        sub_F42C(0x2Eu, 0LL, 0);
-        goto LABEL_71;
+        sub_F3D4(0x2Eu, 0LL, 0);
+        break;
+      case 6u:
+        v22 = (__int64)v3[1];
+        __android_log_buf_print();
+        v34 = v22;
+        v23 = 27;
+        v24 = (const char **)&v34;
+        goto LABEL_59;
       case 7u:
         __android_log_buf_print();
-        sub_F42C(0x29u, (__int64)&v32, 8);
-        goto LABEL_71;
+        v23 = 41;
+        v24 = &v35;
+LABEL_59:
+        sub_F3D4(v23, (__int64)v24, 8);
+        break;
       case 8u:
         __android_log_buf_print();
-        v22 = (__int64)v3[1];
-        v28 = 0;
-        if ( (unsigned __int64)__strlen_chk() < 0x81 )
-        {
-          v27 = v22;
-          v20 = 10;
-          v21 = &v27;
-LABEL_70:
-          sub_F42C(v20, (__int64)v21, 24);
-LABEL_71:
-          if ( v26 >= 1 )
-          {
-            for ( i = 0; ; v8 = v3[i] )
-            {
-              if ( v8 )
-                free(v8);
-              v7 = __OFADD__(i++, 1);
-              if ( v7 )
-                break;
-              if ( i >= v26 )
-                goto LABEL_78;
-            }
-            goto LABEL_81;
-          }
-        }
-        else
-        {
-          __android_log_buf_print();
-          if ( v26 >= 1 )
-          {
-            for ( j = 0; ; v8 = v3[j] )
-            {
-              if ( v8 )
-                free(v8);
-              v7 = __OFADD__(j++, 1);
-              if ( v7 )
-                break;
-              if ( j >= v26 )
-                goto LABEL_78;
-            }
-            goto LABEL_81;
-          }
-        }
+        v25 = (__int64)v3[1];
+        v20 = 10;
+        v30 = 0;
+        v21 = &v29;
+        v29 = v25;
+LABEL_61:
+        sub_F3D4(v20, (__int64)v21, 24);
         break;
       case 9u:
         __android_log_buf_print();
-        sub_F42C(0x28u, 0LL, 0);
-        goto LABEL_71;
+        sub_F3D4(0x28u, 0LL, 0);
+        break;
       case 0xAu:
         __android_log_buf_print();
-        sub_F42C(0xCu, (__int64)&v31, 4);
-        goto LABEL_71;
+        sub_F3D4(0xCu, (__int64)&v33, 4);
+        break;
       default:
         __android_log_buf_print();
-        goto LABEL_71;
+        break;
     }
-    goto LABEL_78;
+    if ( v28 >= 1 )
+    {
+      for ( i = 0; ; v8 = v3[i] )
+      {
+        if ( v8 )
+          free(v8);
+        v7 = __OFADD__(i++, 1);
+        if ( v7 )
+          break;
+        if ( i >= v28 )
+          goto LABEL_71;
+      }
+      goto LABEL_74;
+    }
+    goto LABEL_71;
   }
   v4 = 0;
   while ( 1 )
@@ -2020,7 +2012,7 @@ LABEL_71:
     {
       __android_log_buf_print();
       if ( v4 < 1 )
-        goto LABEL_78;
+        goto LABEL_71;
       v11 = 0;
       while ( 1 )
       {
@@ -2029,16 +2021,16 @@ LABEL_71:
           free(v12);
         v7 = __OFADD__(v11++, 1);
         if ( v7 )
-          goto LABEL_81;
+          goto LABEL_74;
         if ( v11 >= v4 )
-          goto LABEL_78;
+          goto LABEL_71;
       }
     }
-    if ( v25 == 0x7FFFFFFF || v25 & 0x80000000 )
+    if ( v27 == 0x7FFFFFFF || v27 & 0x80000000 )
     {
       __android_log_buf_print();
       if ( v4 < 1 )
-        goto LABEL_78;
+        goto LABEL_71;
       v13 = 0;
       while ( 1 )
       {
@@ -2049,19 +2041,19 @@ LABEL_71:
         if ( v7 )
           break;
         if ( v13 >= v4 )
-          goto LABEL_78;
+          goto LABEL_71;
       }
-LABEL_81:
+LABEL_74:
       abort();
     }
-    if ( __OFADD__(v25, 1) )
-      goto LABEL_81;
-    v5 = calloc(v25 + 1, 1uLL);
+    if ( __OFADD__(v27, 1) )
+      goto LABEL_74;
+    v5 = (char *)calloc(v27 + 1, 1uLL);
     v3[v4] = v5;
     if ( !v5 )
       break;
     v6 = __recvfrom_chk();
-    if ( v6 != v25 )
+    if ( v6 != v27 )
     {
       __android_log_buf_print();
       if ( v4 >= 1 )
@@ -2074,18 +2066,18 @@ LABEL_81:
             free(v18);
           v7 = __OFADD__(v17++, 1);
           if ( v7 )
-            goto LABEL_81;
+            goto LABEL_74;
           if ( v17 >= v4 )
-            goto LABEL_78;
+            goto LABEL_71;
         }
       }
-      goto LABEL_78;
+      goto LABEL_71;
     }
     v7 = __OFADD__(v4++, 1);
     v5[v6] = 0;
     if ( v7 )
-      goto LABEL_81;
-    if ( v4 >= v26 )
+      goto LABEL_74;
+    if ( v4 >= v28 )
     {
       v8 = *v3;
       goto LABEL_19;
@@ -2102,19 +2094,19 @@ LABEL_81:
         free(v16);
       v7 = __OFADD__(v15++, 1);
       if ( v7 )
-        goto LABEL_81;
+        goto LABEL_74;
     }
     while ( v15 < v4 );
   }
-LABEL_78:
+LABEL_71:
   free(v3);
   return close(v2);
 }
-// 16100: using guessed type __int128 xmmword_16100;
-// 16110: using guessed type __int128 xmmword_16110;
+// 16090: using guessed type __int128 xmmword_16090;
+// 160A0: using guessed type __int128 xmmword_160A0;
 // 1EE40: using guessed type int dword_1EE40;
 
-//----- (000000000000782C) ----------------------------------------------------
+//----- (00000000000077F8) ----------------------------------------------------
 __int64 (__fastcall *__fastcall RIL_register_socket(__int64 (__fastcall *result)(_QWORD, _QWORD, __int64), int a2, unsigned int a3, __int64 a4))(_QWORD, _QWORD, __int64)
 {
   int v4; // w19
@@ -2131,7 +2123,7 @@ __int64 (__fastcall *__fastcall RIL_register_socket(__int64 (__fastcall *result)
   return result;
 }
 
-//----- (0000000000007884) ----------------------------------------------------
+//----- (0000000000007850) ----------------------------------------------------
 __int64 __fastcall RIL_onRequestAck(__int64 a1)
 {
   __int64 v1; // x19
@@ -2146,7 +2138,7 @@ __int64 __fastcall RIL_onRequestAck(__int64 a1)
   v1 = a1;
   v2 = MEMORY[0];
   v8 = MEMORY[0];
-  result = sub_7990(a1, 1);
+  result = sub_795C(a1, 1);
   if ( (_DWORD)result )
   {
     if ( !*(_BYTE *)(v1 + 24) )
@@ -2159,7 +2151,7 @@ __int64 __fastcall RIL_onRequestAck(__int64 a1)
         __android_log_buf_print();
       v5 = android::Parcel::data((android::Parcel *)&v7);
       v6 = android::Parcel::dataSize((android::Parcel *)&v7);
-      sub_F540(v5, v6);
+      sub_F4E8(v5, v6);
       result = android::Parcel::~Parcel((android::Parcel *)&v7);
     }
   }
@@ -2171,8 +2163,8 @@ __int64 __fastcall RIL_onRequestAck(__int64 a1)
 }
 // 1EE40: using guessed type int dword_1EE40;
 
-//----- (0000000000007990) ----------------------------------------------------
-__int64 __fastcall sub_7990(__int64 a1, char a2)
+//----- (000000000000795C) ----------------------------------------------------
+__int64 __fastcall sub_795C(__int64 a1, char a2)
 {
   char v2; // w20
   __int64 v3; // x19
@@ -2231,7 +2223,7 @@ LABEL_5:
 }
 // 1EFC0: using guessed type __int64 qword_1EFC0;
 
-//----- (0000000000007A64) ----------------------------------------------------
+//----- (0000000000007A30) ----------------------------------------------------
 void __fastcall RIL_onRequestComplete(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // x20
@@ -2294,7 +2286,7 @@ LABEL_6:
     else
     {
       android::Parcel::writeInt32((android::Parcel *)&v16, 3);
-      sub_8570();
+      sub_853C();
     }
     android::Parcel::writeInt32((android::Parcel *)&v16, *(_DWORD *)v7);
     v12 = android::Parcel::dataPosition((android::Parcel *)&v16);
@@ -2313,7 +2305,7 @@ LABEL_6:
       __android_log_buf_print();
     v14 = android::Parcel::data((android::Parcel *)&v16);
     v15 = android::Parcel::dataSize((android::Parcel *)&v16);
-    sub_F540(v14, v15);
+    sub_F4E8(v14, v15);
     android::Parcel::~Parcel((android::Parcel *)&v16);
   }
   free((void *)v7);
@@ -2321,7 +2313,7 @@ LABEL_6:
 // 1EE40: using guessed type int dword_1EE40;
 // 1EFC0: using guessed type __int64 qword_1EFC0;
 
-//----- (0000000000007CC8) ----------------------------------------------------
+//----- (0000000000007C94) ----------------------------------------------------
 const char *__fastcall requestToString(int a1)
 {
   int v1; // w8
@@ -2846,8 +2838,8 @@ LABEL_7:
   return result;
 }
 
-//----- (0000000000008570) ----------------------------------------------------
-__int64 sub_8570()
+//----- (000000000000853C) ----------------------------------------------------
+__int64 sub_853C()
 {
   __int64 v0; // x0
 
@@ -2855,7 +2847,7 @@ __int64 sub_8570()
     return acquire_wake_lock();
   pthread_mutex_lock((pthread_mutex_t *)&unk_1EFF0);
   acquire_wake_lock();
-  v0 = RIL_requestTimedCallback_0((__int64)sub_8B98, 0LL, (__int128 *)&unk_19720);
+  v0 = RIL_requestTimedCallback_0((__int64)sub_8B64, 0LL, (__int128 *)&unk_196A0);
   if ( v0 )
   {
     if ( __OFADD__(MEMORY[0], 1) )
@@ -2873,7 +2865,7 @@ __int64 sub_8570()
 }
 // 1EF38: using guessed type __int64 qword_1EF38;
 
-//----- (000000000000862C) ----------------------------------------------------
+//----- (00000000000085F8) ----------------------------------------------------
 __int64 __fastcall RIL_onUnsolicitedResponse(android *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // x20
@@ -2924,7 +2916,7 @@ LABEL_57:
   v9 = 0;
   if ( v7 != 7 && v7 != 9 )
   {
-    a1 = (android *)sub_8570();
+    a1 = (android *)sub_853C();
     v9 = 1;
   }
   if ( v5 == 1008 )
@@ -2950,21 +2942,21 @@ LABEL_57:
     LODWORD(v13) = v12 - 2;
     if ( (unsigned int)(v12 - 2) <= 7 )
     {
-      v14 = dword_19750[(signed int)v13];
+      v14 = dword_196D0[(signed int)v13];
       if ( v14 != MEMORY[0] )
       {
-        MEMORY[0] = dword_19750[(signed int)v13];
+        MEMORY[0] = dword_196D0[(signed int)v13];
         RIL_onUnsolicitedResponse(1035LL);
       }
       v13 = (signed int)v13;
-      if ( (unsigned int)(v14 - 4) <= 9 && (0x31Fu >> (v14 - 4)) & 1 && dword_19730[v13] != MEMORY[0] )
+      if ( (unsigned int)(v14 - 4) <= 9 && (0x31Fu >> (v14 - 4)) & 1 && dword_196B0[v13] != MEMORY[0] )
       {
-        MEMORY[0] = dword_19730[v13];
+        MEMORY[0] = dword_196B0[v13];
         RIL_onUnsolicitedResponse(1031LL);
       }
-      if ( dword_19770[v13] != MEMORY[0] )
+      if ( dword_196F0[v13] != MEMORY[0] )
       {
-        MEMORY[0] = dword_19770[v13];
+        MEMORY[0] = dword_196F0[v13];
         RIL_onUnsolicitedResponse(1019LL);
       }
       v12 = 10;
@@ -2973,7 +2965,7 @@ LABEL_57:
   }
   if ( MEMORY[0] <= 12 && !((v9 ^ 1) & 1) )
   {
-    v15 = RIL_requestTimedCallback_0((__int64)sub_8B98, 0LL, (__int128 *)&unk_19720);
+    v15 = RIL_requestTimedCallback_0((__int64)sub_8B64, 0LL, (__int128 *)&unk_196A0);
     if ( !v15 )
       goto LABEL_47;
     if ( qword_1EF38 )
@@ -2982,7 +2974,7 @@ LABEL_57:
   }
   v16 = android::Parcel::data((android::Parcel *)&v24);
   v17 = android::Parcel::dataSize((android::Parcel *)&v24);
-  v18 = sub_F540(v16, v17);
+  v18 = sub_F4E8(v16, v17);
   if ( v5 != 1008 || !v18 )
     goto LABEL_56;
   if ( qword_1EF40 )
@@ -3041,7 +3033,7 @@ LABEL_56:
 // 1EF40: using guessed type __int64 qword_1EF40;
 // 1EF48: using guessed type __int64 qword_1EF48;
 
-//----- (0000000000008A78) ----------------------------------------------------
+//----- (0000000000008A44) ----------------------------------------------------
 __int64 __fastcall RIL_requestTimedCallback_0(__int64 a1, __int64 a2, __int128 *a3)
 {
   __int64 v3; // x21
@@ -3072,7 +3064,7 @@ __int64 __fastcall RIL_requestTimedCallback_0(__int64 a1, __int64 a2, __int128 *
     else
       v9 = 0uLL;
     v12 = v9;
-    ril_event_set((__int64)(v7 + 2), -1, 0, (__int64)sub_10808, (__int64)v7);
+    ril_event_set((__int64)(v7 + 2), -1, 0, (__int64)sub_107B0, (__int64)v7);
     ril_timer_add((__int64)(v8 + 2), &v12);
     v11 = pthread_self();
     result = pthread_equal(v11, qword_1EDF8);
@@ -3096,11 +3088,11 @@ __int64 __fastcall RIL_requestTimedCallback_0(__int64 a1, __int64 a2, __int128 *
     result = (__int64)v8;
   return result;
 }
-// 10808: using guessed type __int64 __fastcall sub_10808();
+// 107B0: using guessed type __int64 __fastcall sub_107B0();
 // 1EDF8: using guessed type __int64 qword_1EDF8;
 
-//----- (0000000000008B98) ----------------------------------------------------
-__int64 __fastcall sub_8B98(__int64 result)
+//----- (0000000000008B64) ----------------------------------------------------
+__int64 __fastcall sub_8B64(__int64 result)
 {
   if ( MEMORY[0] < 13 )
   {
@@ -3117,7 +3109,7 @@ __int64 __fastcall sub_8B98(__int64 result)
   return result;
 }
 
-//----- (0000000000008C0C) ----------------------------------------------------
+//----- (0000000000008BD8) ----------------------------------------------------
 const char *failCauseToString()
 {
   const char *result; // x0
@@ -3170,7 +3162,7 @@ const char *failCauseToString()
     case 0x21u:
     case 0x22u:
     case 0x23u:
-def_8C5C:
+def_8C28:
       result = "<unknown error>";
       break;
     case 0xEu:
@@ -3382,14 +3374,14 @@ def_8C5C:
           result = "E_OEM_ERROR_25";
           break;
         default:
-          goto def_8C5C;
+          goto def_8C28;
       }
       break;
   }
   return result;
 }
 
-//----- (0000000000009014) ----------------------------------------------------
+//----- (0000000000008FE0) ----------------------------------------------------
 const char *__fastcall radioStateToString(unsigned int a1)
 {
   const char *result; // x0
@@ -3402,7 +3394,7 @@ const char *__fastcall radioStateToString(unsigned int a1)
 }
 // 1D750: using guessed type char *off_1D750[11];
 
-//----- (0000000000009038) ----------------------------------------------------
+//----- (0000000000009004) ----------------------------------------------------
 const char *__fastcall callStateToString(unsigned int a1)
 {
   const char *result; // x0
@@ -3415,7 +3407,7 @@ const char *__fastcall callStateToString(unsigned int a1)
 }
 // 1D7B0: using guessed type char *off_1D7B0[6];
 
-//----- (000000000000905C) ----------------------------------------------------
+//----- (0000000000009028) ----------------------------------------------------
 const char *__fastcall rilSocketIdToString(int a1)
 {
   const char *result; // x0
@@ -3427,7 +3419,7 @@ const char *__fastcall rilSocketIdToString(int a1)
   return result;
 }
 
-//----- (0000000000009078) ----------------------------------------------------
+//----- (0000000000009044) ----------------------------------------------------
 __int64 __fastcall rilEventAddWakeup_helper(__int64 a1)
 {
   pthread_t v1; // x0
@@ -3452,7 +3444,7 @@ __int64 __fastcall rilEventAddWakeup_helper(__int64 a1)
 // 1EDF8: using guessed type __int64 qword_1EDF8;
 // 1EF54: using guessed type int dword_1EF54;
 
-//----- (00000000000090DC) ----------------------------------------------------
+//----- (00000000000090A8) ----------------------------------------------------
 __int64 __fastcall listenCallback_helper(int a1, __int64 a2, void *a3)
 {
   void *v3; // x21
@@ -3642,7 +3634,7 @@ LABEL_25:
     RIL_onUnsolicitedResponse((android *)0x3E8, 0LL, 0LL);
     if ( qword_1EF40 )
     {
-      sub_F540(qword_1EF40, qword_1EF48);
+      sub_F4E8(qword_1EF40, qword_1EF48);
       free((void *)qword_1EF40);
       qword_1EF40 = 0LL;
     }
@@ -3659,8 +3651,8 @@ LABEL_25:
 // 1EF54: using guessed type int dword_1EF54;
 // 1EFC0: using guessed type __int64 qword_1EFC0;
 
-//----- (00000000000096C0) ----------------------------------------------------
-signed __int64 __fastcall sub_96C0(int a1, __int64 a2, unsigned __int64 a3)
+//----- (000000000000968C) ----------------------------------------------------
+signed __int64 __fastcall sub_968C(int a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // x20
   int v4; // w19
@@ -3704,8 +3696,8 @@ LABEL_9:
   return 0xFFFFFFFFLL;
 }
 
-//----- (00000000000097B4) ----------------------------------------------------
-__int64 sub_97B4()
+//----- (0000000000009780) ----------------------------------------------------
+__int64 sub_9780()
 {
   __int64 result; // x0
 
@@ -3722,8 +3714,8 @@ __int64 sub_97B4()
   return result;
 }
 
-//----- (0000000000009980) ----------------------------------------------------
-void __fastcall sub_9980(android::Parcel *a1, unsigned int *a2)
+//----- (0000000000009990) ----------------------------------------------------
+void __fastcall sub_9990(android::Parcel *a1, unsigned int *a2)
 {
   unsigned int *v2; // x20
   android::Parcel *v3; // x21
@@ -3827,22 +3819,12 @@ LABEL_15:
 }
 // 8: using guessed type __int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD);
 
-//----- (000000000000EA3C) ----------------------------------------------------
-__int64 __fastcall sub_EA3C(android::Parcel *a1, int *a2)
+//----- (000000000000E948) ----------------------------------------------------
+__int64 __fastcall sub_E948(android::Parcel *a1, int *a2)
 {
-  int *v2; // x21
-  android::Parcel *v3; // x19
-  signed int v4; // w20
-  __int64 result; // x0
-  signed int v6; // w23
-  signed __int64 v7; // x24
-  signed __int64 v8; // x26
-  __int64 v9; // x0
-  char16_t *v10; // x21
-  __int64 v11; // x0
-  char16_t *v12; // x21
-  unsigned __int8 v13; // vf
-  unsigned __int64 v14; // [xsp+0h] [xbp-50h]
+  int *v2; // x19
+  android::Parcel *v3; // x20
+  __int64 v4; // x4
 
   v2 = a2;
   v3 = a1;
@@ -3851,40 +3833,84 @@ __int64 __fastcall sub_EA3C(android::Parcel *a1, int *a2)
   android::Parcel::writeInt32(v3, v2[2]);
   android::Parcel::writeInt32(v3, v2[3]);
   android::Parcel::writeInt32(v3, v2[4]);
-  v4 = v2[5];
-  result = android::Parcel::writeInt32(v3, v2[5]);
+  sub_E9D8(v3, v2[5], (__int64)(v2 + 6));
+  android::Parcel::writeInt32(v3, v2[134]);
+  v4 = (unsigned int)v2[134];
+  return __android_log_buf_print();
+}
+
+//----- (000000000000E9D8) ----------------------------------------------------
+__int64 __fastcall sub_E9D8(android::Parcel *a1, int a2, __int64 a3)
+{
+  __int64 v3; // x19
+  signed int v4; // w20
+  android::Parcel *v5; // x21
+  __int64 result; // x0
+  signed int v7; // w24
+  signed __int64 v8; // x25
+  __int64 v9; // x0
+  char16_t *v10; // x22
+  __int64 v11; // x0
+  char16_t *v12; // x22
+  unsigned __int8 v13; // vf
+  signed int v14; // w22
+  int *v15; // x24
+  unsigned __int64 v16; // [xsp+0h] [xbp-50h]
+
+  v3 = a3;
+  v4 = a2;
+  v5 = a1;
+  result = android::Parcel::writeInt32(a1, a2);
   if ( v4 >= 1 )
   {
-    v6 = 0;
-    v7 = (signed __int64)(v2 + 6);
+    v7 = 0;
     do
     {
-      v8 = v7 + 48LL * v6;
-      android::Parcel::writeInt32(v3, *(_DWORD *)v8);
-      android::Parcel::writeInt32(v3, *(_DWORD *)(v8 + 4));
-      android::Parcel::writeInt32(v3, *(_DWORD *)(v8 + 8));
+      v8 = v3 + ((signed __int64)v7 << 6);
+      android::Parcel::writeInt32(v5, *(_DWORD *)v8);
+      android::Parcel::writeInt32(v5, *(_DWORD *)(v8 + 4));
+      android::Parcel::writeInt32(v5, *(_DWORD *)(v8 + 8));
       v9 = *(_QWORD *)(v8 + 16);
       v10 = (char16_t *)strdup8to16();
-      android::Parcel::writeString16(v3, v10, v14);
+      android::Parcel::writeString16(v5, v10, v16);
       free(v10);
       v11 = *(_QWORD *)(v8 + 24);
       v12 = (char16_t *)strdup8to16();
-      android::Parcel::writeString16(v3, v12, v14);
+      android::Parcel::writeString16(v5, v12, v16);
       free(v12);
-      android::Parcel::writeInt32(v3, *(_DWORD *)(v8 + 32));
-      android::Parcel::writeInt32(v3, *(_DWORD *)(v8 + 36));
-      result = android::Parcel::writeInt32(v3, *(_DWORD *)(v8 + 40));
-      v13 = __OFADD__(v6++, 1);
+      android::Parcel::writeInt32(v5, *(_DWORD *)(v8 + 32));
+      android::Parcel::writeInt32(v5, *(_DWORD *)(v8 + 36));
+      result = android::Parcel::writeInt32(v5, *(_DWORD *)(v8 + 40));
+      v13 = __OFADD__(v7++, 1);
       if ( v13 )
-        abort();
+        goto LABEL_10;
     }
-    while ( v6 < v4 );
+    while ( v7 < v4 );
+    if ( v4 > 0 )
+    {
+      v14 = 0;
+      while ( 1 )
+      {
+        v15 = (int *)(v3 + ((signed __int64)v14 << 6));
+        android::Parcel::writeInt32(v5, v15[11]);
+        android::Parcel::writeInt32(v5, v15[12]);
+        android::Parcel::writeInt32(v5, v15[13]);
+        result = android::Parcel::writeInt32(v5, v15[14]);
+        v13 = __OFADD__(v14++, 1);
+        if ( v13 )
+          break;
+        if ( v14 >= v4 )
+          return result;
+      }
+LABEL_10:
+      abort();
+    }
   }
   return result;
 }
 
-//----- (000000000000EBAC) ----------------------------------------------------
-__int64 __fastcall sub_EBAC(android::Parcel *this, _DWORD *a2)
+//----- (000000000000EB54) ----------------------------------------------------
+__int64 __fastcall sub_EB54(android::Parcel *this, _DWORD *a2)
 {
   _DWORD *v2; // x19
   android::Parcel *v3; // x20
@@ -3929,8 +3955,8 @@ LABEL_11:
   return android::Parcel::writeInt32(v3, v2[11]);
 }
 
-//----- (000000000000EC64) ----------------------------------------------------
-__int64 __fastcall sub_EC64(android::Parcel *this, __int64 a2, unsigned __int64 a3)
+//----- (000000000000EC0C) ----------------------------------------------------
+__int64 __fastcall sub_EC0C(android::Parcel *this, __int64 a2, unsigned __int64 a3)
 {
   __int64 v3; // x19
   android::Parcel *v4; // x20
@@ -4019,8 +4045,8 @@ __int64 __fastcall sub_EC64(android::Parcel *this, __int64 a2, unsigned __int64 
   return result;
 }
 
-//----- (000000000000EEB8) ----------------------------------------------------
-__int64 __fastcall sub_EEB8(android::Parcel *a1, char *a2)
+//----- (000000000000EE60) ----------------------------------------------------
+__int64 __fastcall sub_EE60(android::Parcel *a1, char *a2)
 {
   char *v2; // x19
   android::Parcel *v3; // x20
@@ -4142,8 +4168,8 @@ LABEL_8:
   return result;
 }
 
-//----- (000000000000F0E4) ----------------------------------------------------
-__int64 __fastcall sub_F0E4(android::Parcel *this, __int64 a2, unsigned __int64 a3)
+//----- (000000000000F08C) ----------------------------------------------------
+__int64 __fastcall sub_F08C(android::Parcel *this, __int64 a2, unsigned __int64 a3)
 {
   __int64 v3; // x21
   android::Parcel *v4; // x19
@@ -4257,8 +4283,8 @@ LABEL_14:
   return result;
 }
 
-//----- (000000000000F42C) ----------------------------------------------------
-__int64 __fastcall sub_F42C(unsigned int a1, __int64 a2, int a3)
+//----- (000000000000F3D4) ----------------------------------------------------
+__int64 __fastcall sub_F3D4(unsigned int a1, __int64 a2, int a3)
 {
   __int64 v3; // x20
   unsigned int v4; // w19
@@ -4297,8 +4323,8 @@ __int64 __fastcall sub_F42C(unsigned int a1, __int64 a2, int a3)
 // 8: using guessed type __int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD);
 // 1EFC0: using guessed type __int64 qword_1EFC0;
 
-//----- (000000000000F540) ----------------------------------------------------
-__int64 __fastcall sub_F540(__int64 result, unsigned __int64 a2)
+//----- (000000000000F4E8) ----------------------------------------------------
+__int64 __fastcall sub_F4E8(__int64 result, unsigned __int64 a2)
 {
   unsigned __int64 v2; // x19
   __int64 v3; // x20
@@ -4322,14 +4348,14 @@ __int64 __fastcall sub_F540(__int64 result, unsigned __int64 a2)
   {
     pthread_mutex_lock((pthread_mutex_t *)&unk_1EFC8);
     v8 = bswap32(v2);
-    v6 = sub_96C0(v5, (__int64)&v8, 4uLL);
+    v6 = sub_968C(v5, (__int64)&v8, 4uLL);
     if ( v6 & 0x80000000 )
     {
       result = pthread_mutex_unlock((pthread_mutex_t *)&unk_1EFC8);
     }
     else
     {
-      v7 = sub_96C0(v5, v3, v2);
+      v7 = sub_968C(v5, v3, v2);
       result = pthread_mutex_unlock((pthread_mutex_t *)&unk_1EFC8);
       v6 = v7 & (v7 >> 31);
     }
@@ -4345,7 +4371,7 @@ __int64 __fastcall sub_F540(__int64 result, unsigned __int64 a2)
 }
 // 1EE40: using guessed type int dword_1EE40;
 
-//----- (0000000000010848) ----------------------------------------------------
+//----- (00000000000107F0) ----------------------------------------------------
 __int64 ril_event_init(void)
 {
   __int64 result; // x0
@@ -4383,7 +4409,7 @@ __int64 ril_event_init(void)
 // 1F110: using guessed type __int128 xmmword_1F110;
 // 1F120: using guessed type int dword_1F120;
 
-//----- (00000000000108DC) ----------------------------------------------------
+//----- (0000000000010884) ----------------------------------------------------
 __int64 __fastcall ril_event_set(__int64 a1, int a2, char a3, __int64 a4, __int64 a5)
 {
   *(_QWORD *)(a1 + 48) = 0LL;
@@ -4398,7 +4424,7 @@ __int64 __fastcall ril_event_set(__int64 a1, int a2, char a3, __int64 a4, __int6
   return fcntl(a2, 4);
 }
 
-//----- (0000000000010918) ----------------------------------------------------
+//----- (00000000000108C0) ----------------------------------------------------
 __int64 __fastcall ril_event_add(__int64 a1)
 {
   __int64 v1; // x19
@@ -4437,7 +4463,7 @@ LABEL_10:
 }
 // 1F190: using guessed type int dword_1F190;
 
-//----- (00000000000109B4) ----------------------------------------------------
+//----- (000000000001095C) ----------------------------------------------------
 __int64 __fastcall ril_timer_add(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // x19
@@ -4511,7 +4537,7 @@ LABEL_16:
 }
 // 1F0D0: using guessed type __int128 xmmword_1F0D0;
 
-//----- (0000000000010B08) ----------------------------------------------------
+//----- (0000000000010AB0) ----------------------------------------------------
 __int64 __fastcall ril_event_del(__int64 a1)
 {
   __int64 v1; // x19
@@ -4570,7 +4596,7 @@ LABEL_13:
 }
 // 1F190: using guessed type int dword_1F190;
 
-//----- (0000000000010BC4) ----------------------------------------------------
+//----- (0000000000010B6C) ----------------------------------------------------
 __int64 ril_event_loop(void)
 {
   __int64 v0; // x21
@@ -4820,7 +4846,7 @@ LABEL_46:
 // 1F110: using guessed type __int128 xmmword_1F110;
 // 1F190: using guessed type int dword_1F190;
 
-//----- (0000000000010F38) ----------------------------------------------------
+//----- (0000000000010EE0) ----------------------------------------------------
 __int64 __fastcall RilSocket::socketInit(RilSocket *this)
 {
   RilSocket *v1; // x19
@@ -4878,7 +4904,7 @@ __int64 __fastcall RilSocket::socketInit(RilSocket *this)
   return result;
 }
 
-//----- (0000000000011080) ----------------------------------------------------
+//----- (0000000000011028) ----------------------------------------------------
 __int64 __fastcall RilSocket::sSocketListener(RilSocket *this, __int64 a2, __int64 a3, void *a4)
 {
   __int64 v5; // [xsp+0h] [xbp-60h]
@@ -4892,13 +4918,13 @@ __int64 __fastcall RilSocket::sSocketListener(RilSocket *this, __int64 a2, __int
   return listenCallback_helper((int)this, a2, &v5);
 }
 
-//----- (00000000000110D4) ----------------------------------------------------
+//----- (000000000001107C) ----------------------------------------------------
 _DWORD *__fastcall RilSocket::sSocketRequestsHandler(RilSocket *this, __int64 a2, int **a3, void *a4)
 {
   return RilSocket::socketRequestsHandler(*a3);
 }
 
-//----- (00000000000110DC) ----------------------------------------------------
+//----- (0000000000011084) ----------------------------------------------------
 __int64 __fastcall RilSocket::onNewCommandConnect(RilSocket *this)
 {
   pthread_t *v1; // x19
@@ -4914,14 +4940,14 @@ __int64 __fastcall RilSocket::onNewCommandConnect(RilSocket *this)
   return __android_log_buf_print();
 }
 
-//----- (0000000000011188) ----------------------------------------------------
+//----- (0000000000011130) ----------------------------------------------------
 __int64 __fastcall ril_socket_process_requests_loop(__int64 a1)
 {
   (*(void (**)(void))(*(_QWORD *)a1 + 8LL))();
   return 0LL;
 }
 
-//----- (00000000000111A8) ----------------------------------------------------
+//----- (0000000000011150) ----------------------------------------------------
 _DWORD *__fastcall RilSocket::socketRequestsHandler(int *a1)
 {
   int *v1; // x19
@@ -4970,59 +4996,59 @@ LABEL_12:
   return result;
 }
 
-//----- (0000000000011300) ----------------------------------------------------
+//----- (00000000000112A8) ----------------------------------------------------
 __int64 __fastcall RilSocket::setListenFd(__int64 result, int a2)
 {
   *(_DWORD *)(result + 20) = a2;
   return result;
 }
 
-//----- (0000000000011308) ----------------------------------------------------
+//----- (00000000000112B0) ----------------------------------------------------
 __int64 __fastcall RilSocket::setCommandFd(__int64 result, int a2)
 {
   *(_DWORD *)(result + 24) = a2;
   return result;
 }
 
-//----- (0000000000011310) ----------------------------------------------------
+//----- (00000000000112B8) ----------------------------------------------------
 __int64 __fastcall RilSocket::getListenFd(RilSocket *this)
 {
   return *((unsigned int *)this + 5);
 }
 
-//----- (0000000000011318) ----------------------------------------------------
+//----- (00000000000112C0) ----------------------------------------------------
 __int64 __fastcall RilSocket::getCommandFd(RilSocket *this)
 {
   return *((unsigned int *)this + 6);
 }
 
-//----- (0000000000011320) ----------------------------------------------------
+//----- (00000000000112C8) ----------------------------------------------------
 __int64 __fastcall RilSocket::setListenCb(__int64 result, void (__cdecl *a2)(int, __int16, void *))
 {
   *(_QWORD *)(result + 40) = a2;
   return result;
 }
 
-//----- (0000000000011328) ----------------------------------------------------
+//----- (00000000000112D0) ----------------------------------------------------
 __int64 __fastcall RilSocket::setCommandCb(__int64 result, void (__cdecl *a2)(int, __int16, void *))
 {
   *(_QWORD *)(result + 48) = a2;
   return result;
 }
 
-//----- (0000000000011330) ----------------------------------------------------
+//----- (00000000000112D8) ----------------------------------------------------
 __int64 __fastcall RilSocket::getListenCb(RilSocket *this)
 {
   return *((_QWORD *)this + 5);
 }
 
-//----- (0000000000011338) ----------------------------------------------------
+//----- (00000000000112E0) ----------------------------------------------------
 __int64 __fastcall RilSocket::getCommandCb(RilSocket *this)
 {
   return *((_QWORD *)this + 6);
 }
 
-//----- (0000000000011340) ----------------------------------------------------
+//----- (00000000000112E8) ----------------------------------------------------
 long double __fastcall RilSocket::setListenEvent(__int64 a1, __int64 a2)
 {
   long double result; // q0
@@ -5035,7 +5061,7 @@ long double __fastcall RilSocket::setListenEvent(__int64 a1, __int64 a2)
   return result;
 }
 
-//----- (0000000000011364) ----------------------------------------------------
+//----- (000000000001130C) ----------------------------------------------------
 long double __fastcall RilSocket::setCallbackEvent(__int64 a1, __int64 a2)
 {
   long double result; // q0
@@ -5048,19 +5074,19 @@ long double __fastcall RilSocket::setCallbackEvent(__int64 a1, __int64 a2)
   return result;
 }
 
-//----- (0000000000011388) ----------------------------------------------------
+//----- (0000000000011330) ----------------------------------------------------
 RilSocket *__fastcall RilSocket::getListenEvent(RilSocket *this)
 {
   return (RilSocket *)((char *)this + 56);
 }
 
-//----- (0000000000011390) ----------------------------------------------------
+//----- (0000000000011338) ----------------------------------------------------
 RilSocket *__fastcall RilSocket::getCallbackEvent(RilSocket *this)
 {
   return (RilSocket *)((char *)this + 120);
 }
 
-//----- (0000000000011398) ----------------------------------------------------
+//----- (0000000000011340) ----------------------------------------------------
 void __fastcall RilSapSocket::sOnRequestComplete(__int64 a1, int a2, const void *a3, unsigned __int64 a4)
 {
   __int64 v4; // x19
@@ -5096,7 +5122,7 @@ void __fastcall RilSapSocket::sOnRequestComplete(__int64 a1, int a2, const void 
   }
 }
 
-//----- (0000000000011450) ----------------------------------------------------
+//----- (00000000000113F8) ----------------------------------------------------
 void __fastcall RilSapSocket::sOnUnsolicitedResponse(RilSapSocket *this, void *a2, const void *a3)
 {
   int v3; // w21
@@ -5112,7 +5138,7 @@ void __fastcall RilSapSocket::sOnUnsolicitedResponse(RilSapSocket *this, void *a
     RilSapSocket::onUnsolicitedResponse(v6, v3, v5, (unsigned __int64)v4);
 }
 
-//----- (00000000000114A4) ----------------------------------------------------
+//----- (000000000001144C) ----------------------------------------------------
 __int64 __fastcall RilSapSocket::getSocketById(int a1)
 {
   _QWORD *v1; // x23
@@ -5149,7 +5175,7 @@ __int64 __fastcall RilSapSocket::getSocketById(int a1)
 }
 // 1F198: using guessed type __int64 qword_1F198;
 
-//----- (0000000000011590) ----------------------------------------------------
+//----- (0000000000011538) ----------------------------------------------------
 void __fastcall RilSapSocket::onRequestComplete(__int64 a1, __int64 a2, int a3, const void *a4, unsigned __int64 a5)
 {
   size_t v5; // x21
@@ -5234,7 +5260,7 @@ LABEL_13:
   free(v8);
 }
 
-//----- (000000000001174C) ----------------------------------------------------
+//----- (00000000000116F4) ----------------------------------------------------
 void __fastcall RilSapSocket::onUnsolicitedResponse(RilSapSocket *this, int a2, void *a3, unsigned __int64 a4)
 {
   size_t v4; // x21
@@ -5286,7 +5312,7 @@ LABEL_10:
     goto LABEL_10;
 }
 
-//----- (0000000000011844) ----------------------------------------------------
+//----- (00000000000117EC) ----------------------------------------------------
 __int64 __fastcall RilSapSocket::printList(RilSapSocket *this)
 {
   _QWORD *v1; // x22
@@ -5306,7 +5332,7 @@ __int64 __fastcall RilSapSocket::printList(RilSapSocket *this)
 }
 // 1F198: using guessed type __int64 qword_1F198;
 
-//----- (00000000000118E4) ----------------------------------------------------
+//----- (000000000001188C) ----------------------------------------------------
 __int64 __fastcall RilSapSocket::initSapSocket(const char *a1, __int64 a2)
 {
   __int64 v2; // x19
@@ -5342,7 +5368,7 @@ LABEL_5:
 }
 // 1F198: using guessed type __int64 qword_1F198;
 
-//----- (0000000000011960) ----------------------------------------------------
+//----- (0000000000011908) ----------------------------------------------------
 __int64 __fastcall RilSapSocket::SocketExists(RilSapSocket *this, const char *a2)
 {
   RilSapSocket *v2; // x19
@@ -5362,7 +5388,7 @@ __int64 __fastcall RilSapSocket::SocketExists(RilSapSocket *this, const char *a2
 }
 // 1F198: using guessed type __int64 qword_1F198;
 
-//----- (00000000000119B8) ----------------------------------------------------
+//----- (0000000000011960) ----------------------------------------------------
 __int64 __fastcall RilSapSocket::addSocketToList(const char *a1, int a2, __int64 a3)
 {
   __int64 v3; // x20
@@ -5447,15 +5473,14 @@ LABEL_4:
     }
     else
     {
-      __android_log_buf_print();
-      result = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v8 + 32LL))(v8);
+      result = __android_log_buf_print();
     }
   }
   return result;
 }
 // 1F198: using guessed type __int64 qword_1F198;
 
-//----- (0000000000011B64) ----------------------------------------------------
+//----- (0000000000011AFC) ----------------------------------------------------
 void __fastcall __noreturn RilSapSocket::processRequestsLoop(RilSapSocket *this)
 {
   RilSapSocket *v1; // x19
@@ -5481,7 +5506,7 @@ void __fastcall __noreturn RilSapSocket::processRequestsLoop(RilSapSocket *this)
   }
 }
 
-//----- (0000000000011C0C) ----------------------------------------------------
+//----- (0000000000011BA4) ----------------------------------------------------
 void __fastcall RilSapSocket::dispatchRequest(__int64 a1, unsigned int *a2)
 {
   __int64 v2; // x20
@@ -5537,7 +5562,7 @@ void __fastcall RilSapSocket::dispatchRequest(__int64 a1, unsigned int *a2)
   }
 }
 
-//----- (0000000000011D14) ----------------------------------------------------
+//----- (0000000000011CAC) ----------------------------------------------------
 __int64 __fastcall RilSapSocket::RilSapSocket(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 v4; // x20
@@ -5573,7 +5598,7 @@ __int64 __fastcall RilSapSocket::RilSapSocket(__int64 a1, __int64 a2, int a3, __
   return result;
 }
 
-//----- (0000000000011DD0) ----------------------------------------------------
+//----- (0000000000011D68) ----------------------------------------------------
 __int64 __fastcall log_hex(const char *a1, const unsigned __int8 *a2, int a3)
 {
   int v3; // w19
@@ -5661,9 +5686,9 @@ LABEL_20:
   while ( (unsigned __int8)v10 & (v6 < 80) );
   return result;
 }
-// 11DD0: using guessed type char var_A8[80];
+// 11D68: using guessed type char var_A8[80];
 
-//----- (0000000000011F7C) ----------------------------------------------------
+//----- (0000000000011F14) ----------------------------------------------------
 __int64 __fastcall RilSapSocket::sendResponse(__int64 a1, char *a2)
 {
   __int64 v2; // x22
@@ -5753,7 +5778,7 @@ LABEL_16:
   return result;
 }
 
-//----- (00000000000121E0) ----------------------------------------------------
+//----- (0000000000012178) ----------------------------------------------------
 void __fastcall RilSapSocket::pushRecord(RilSapSocket *this, void *a2, __int64 a3)
 {
   int v3; // w21
@@ -5815,7 +5840,7 @@ LABEL_9:
   pthread_mutex_unlock((pthread_mutex_t *)((char *)v5 + 248));
 }
 
-//----- (0000000000012370) ----------------------------------------------------
+//----- (0000000000012308) ----------------------------------------------------
 void __fastcall RilSapSocket::sendDisconnect(RilSapSocket *this)
 {
   RilSapSocket *v1; // x19
@@ -5903,7 +5928,7 @@ LABEL_16:
     abort();
 }
 
-//----- (0000000000012520) ----------------------------------------------------
+//----- (00000000000124B8) ----------------------------------------------------
 void __fastcall RilSapSocket::dispatchDisconnect(__int64 a1, __int64 a2)
 {
   __int64 v2; // x20
@@ -5936,14 +5961,14 @@ void __fastcall RilSapSocket::dispatchDisconnect(__int64 a1, __int64 a2)
   }
 }
 
-//----- (00000000000125D8) ----------------------------------------------------
+//----- (0000000000012570) ----------------------------------------------------
 __int64 __fastcall RilSapSocket::onCommandsSocketClosed(RilSapSocket *this)
 {
   RilSapSocket::sendDisconnect(this);
   return __android_log_buf_print();
 }
 
-//----- (0000000000012608) ----------------------------------------------------
+//----- (00000000000125A0) ----------------------------------------------------
 signed __int64 __fastcall pb_read(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // x20
@@ -5956,7 +5981,7 @@ signed __int64 __fastcall pb_read(__int64 a1, __int64 a2, unsigned __int64 a3)
   v3 = a3;
   v4 = a1;
   v8 = MEMORY[0];
-  if ( a2 || *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12798 )
+  if ( a2 || *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12730 )
   {
     if ( *(_QWORD *)(a1 + 16) < a3 )
     {
@@ -6018,8 +6043,8 @@ LABEL_20:
   return 0LL;
 }
 
-//----- (0000000000012798) ----------------------------------------------------
-signed __int64 __fastcall sub_12798(__int64 a1, _OWORD *a2, unsigned __int64 a3)
+//----- (0000000000012730) ----------------------------------------------------
+signed __int64 __fastcall sub_12730(__int64 a1, _OWORD *a2, unsigned __int64 a3)
 {
   char *v3; // x10
   unsigned __int64 v4; // x12
@@ -6068,17 +6093,17 @@ LABEL_8:
   return 1LL;
 }
 
-//----- (0000000000012828) ----------------------------------------------------
+//----- (00000000000127C0) ----------------------------------------------------
 __int64 __usercall pb_istream_from_buffer@<X0>(__int64 result@<X0>, __int64 a2@<X1>, _QWORD *a3@<X8>)
 {
-  *a3 = sub_12798;
+  *a3 = sub_12730;
   a3[1] = result;
   a3[2] = a2;
   a3[3] = 0LL;
   return result;
 }
 
-//----- (000000000001283C) ----------------------------------------------------
+//----- (00000000000127D4) ----------------------------------------------------
 signed __int64 __fastcall pb_decode_varint(__int64 a1, _QWORD *a2)
 {
   _QWORD *v2; // x20
@@ -6133,7 +6158,7 @@ signed __int64 __fastcall pb_decode_varint(__int64 a1, _QWORD *a2)
   return result;
 }
 
-//----- (0000000000012964) ----------------------------------------------------
+//----- (00000000000128FC) ----------------------------------------------------
 signed __int64 __fastcall pb_decode_tag(__int64 a1, unsigned int *a2, unsigned int *a3, _BYTE *a4)
 {
   _BYTE *v4; // x19
@@ -6221,7 +6246,7 @@ LABEL_18:
   return result;
 }
 
-//----- (0000000000012ADC) ----------------------------------------------------
+//----- (0000000000012A74) ----------------------------------------------------
 signed __int64 __fastcall pb_skip_field(__int64 a1, int a2)
 {
   __int64 v2; // x19
@@ -6277,7 +6302,7 @@ signed __int64 __fastcall pb_skip_field(__int64 a1, int a2)
         goto LABEL_58;
       }
     case 1:
-      if ( *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12798 )
+      if ( *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12730 )
       {
         v11 = *(_QWORD *)(a1 + 16);
         if ( v11 > 7 )
@@ -6369,7 +6394,7 @@ LABEL_37:
       result = 0LL;
       goto LABEL_58;
     case 5:
-      if ( *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12798 )
+      if ( *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12730 )
       {
         v13 = *(_QWORD *)(a1 + 16);
         if ( v13 > 3 )
@@ -6438,7 +6463,7 @@ LABEL_58:
   }
 }
 
-//----- (0000000000012E08) ----------------------------------------------------
+//----- (0000000000012DA0) ----------------------------------------------------
 signed __int64 __fastcall pb_make_string_substream(__int64 a1, _OWORD *a2)
 {
   __int64 v2; // x19
@@ -6527,7 +6552,7 @@ LABEL_9:
   return result;
 }
 
-//----- (0000000000012F8C) ----------------------------------------------------
+//----- (0000000000012F24) ----------------------------------------------------
 __int64 __fastcall pb_close_string_substream(__int64 result, __int64 a2)
 {
   *(_QWORD *)(result + 8) = *(_QWORD *)(a2 + 8);
@@ -6535,7 +6560,7 @@ __int64 __fastcall pb_close_string_substream(__int64 result, __int64 a2)
   return result;
 }
 
-//----- (0000000000012FA0) ----------------------------------------------------
+//----- (0000000000012F38) ----------------------------------------------------
 signed __int64 __fastcall pb_decode_noinit(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // x20
@@ -6719,7 +6744,7 @@ LABEL_87:
         {
           if ( !(v11[1] & 0x30) && v8 <= 0x3F )
             *((_BYTE *)&v56 + (v8 >> 3)) |= 1 << (v8 & 7);
-          v20 = ~(unsigned int)sub_13538(v5, v48, &v50) & 1;
+          v20 = ~(unsigned int)sub_134D0(v5, v48, &v50) & 1;
           goto LABEL_64;
         }
         v27 = v11[4];
@@ -6847,7 +6872,7 @@ LABEL_6:
                   v59 = *(_QWORD *)(v14 + 8);
                   v60 = v59;
                   v61 = v14 + 24;
-                  if ( !(sub_13538(v5, v42, &v57) & 1) )
+                  if ( !(sub_134D0(v5, v42, &v57) & 1) )
                     return 0LL;
                 }
               }
@@ -6893,8 +6918,8 @@ LABEL_3:
   return result;
 }
 
-//----- (0000000000013538) ----------------------------------------------------
-__int64 __fastcall sub_13538(__int64 result, int a2, _QWORD *a3)
+//----- (00000000000134D0) ----------------------------------------------------
+__int64 __fastcall sub_134D0(__int64 result, int a2, _QWORD *a3)
 {
   _QWORD *v3; // x20
   __int64 v4; // x19
@@ -7021,7 +7046,7 @@ LABEL_66:
             if ( (unsigned int)(v32 - 5) >= 2 )
             {
               if ( v32 == 7 )
-                sub_13D1C(*(unsigned __int8 **)(v30 + 6), v31);
+                sub_13CB4(*(unsigned __int8 **)(v30 + 6), v31);
             }
             else
             {
@@ -7051,7 +7076,7 @@ LABEL_66:
           if ( (unsigned int)(v45 - 5) >= 2 )
           {
             if ( v45 == 7 )
-              result = (__int64)sub_13D1C(
+              result = (__int64)sub_13CB4(
                                   *(unsigned __int8 **)(v43 + 6),
                                   (_QWORD *)(*(_QWORD *)v3[4] + (*v23 - 1) * *(unsigned __int8 *)(v43 + 4)));
           }
@@ -7108,7 +7133,7 @@ LABEL_102:
       if ( (unsigned int)(v41 - 5) >= 2 )
       {
         if ( v41 == 7 )
-          result = (__int64)sub_13D1C(*(unsigned __int8 **)(v39 + 6), v40);
+          result = (__int64)sub_13CB4(*(unsigned __int8 **)(v39 + 6), v40);
       }
       else
       {
@@ -7187,7 +7212,7 @@ LABEL_116:
           v49 = 4LL;
           *(_QWORD *)(v4 + 16) -= 4LL;
 LABEL_125:
-          v53 = sub_12798;
+          v53 = sub_12730;
           v55 = v49;
           v56 = 0LL;
           v54 = v57;
@@ -7393,9 +7418,9 @@ LABEL_65:
   return result;
 }
 // 1D818: using guessed type __int64 (__fastcall *off_1D818[8])();
-// 13538: using guessed type char var_52[10];
+// 134D0: using guessed type char var_52[10];
 
-//----- (0000000000013CBC) ----------------------------------------------------
+//----- (0000000000013C54) ----------------------------------------------------
 __int64 __fastcall pb_decode(__int64 a1, unsigned __int8 *a2, void **a3)
 {
   void **v3; // x19
@@ -7406,15 +7431,15 @@ __int64 __fastcall pb_decode(__int64 a1, unsigned __int8 *a2, void **a3)
   v3 = a3;
   v4 = (__int64)a2;
   v5 = a1;
-  sub_13D1C(a2, a3);
+  sub_13CB4(a2, a3);
   v6 = pb_decode_noinit(v5, v4, (__int64)v3) & 1;
   if ( !v6 )
     pb_release(v4, v3);
   return v6;
 }
 
-//----- (0000000000013D1C) ----------------------------------------------------
-unsigned __int8 *__fastcall sub_13D1C(unsigned __int8 *result, _QWORD *a2)
+//----- (0000000000013CB4) ----------------------------------------------------
+unsigned __int8 *__fastcall sub_13CB4(unsigned __int8 *result, _QWORD *a2)
 {
   unsigned __int8 *v2; // x20
   _QWORD *v3; // x19
@@ -7461,7 +7486,7 @@ LABEL_11:
     }
     if ( (v7 & 0xF) == 7 )
     {
-      result = (unsigned __int8 *)sub_13D1C(*(_QWORD *)(v4 + 6), v5);
+      result = (unsigned __int8 *)sub_13CB4(*(_QWORD *)(v4 + 6), v5);
     }
     else
     {
@@ -7506,7 +7531,7 @@ LABEL_15:
   return result;
 }
 
-//----- (0000000000013E9C) ----------------------------------------------------
+//----- (0000000000013E34) ----------------------------------------------------
 void __fastcall pb_release(__int64 a1, void **a2)
 {
   __int64 v2; // x20
@@ -7612,7 +7637,7 @@ void __fastcall pb_release(__int64 a1, void **a2)
   while ( v18 & 1 );
 }
 
-//----- (0000000000014038) ----------------------------------------------------
+//----- (0000000000013FD0) ----------------------------------------------------
 void __fastcall pb_decode_delimited(__int64 a1, unsigned __int8 *a2, void **a3)
 {
   unsigned __int8 *v3; // x21
@@ -7629,7 +7654,7 @@ void __fastcall pb_decode_delimited(__int64 a1, unsigned __int8 *a2, void **a3)
   v9 = MEMORY[0];
   if ( pb_make_string_substream(a1, &v6) & 1 )
   {
-    sub_13D1C(v3, v4);
+    sub_13CB4(v3, v4);
     if ( !(pb_decode_noinit((__int64)&v6, (__int64)v3, (__int64)v4) & 1) )
       pb_release((__int64)v3, v4);
     *(_QWORD *)(v5 + 8) = v7;
@@ -7637,7 +7662,7 @@ void __fastcall pb_decode_delimited(__int64 a1, unsigned __int8 *a2, void **a3)
   }
 }
 
-//----- (00000000000140F0) ----------------------------------------------------
+//----- (0000000000014088) ----------------------------------------------------
 signed __int64 __fastcall pb_decode_svarint(__int64 a1, unsigned __int64 *a2)
 {
   unsigned __int64 *v2; // x20
@@ -7692,7 +7717,7 @@ LABEL_13:
   return 0LL;
 }
 
-//----- (00000000000141F8) ----------------------------------------------------
+//----- (0000000000014190) ----------------------------------------------------
 signed __int64 __fastcall pb_decode_fixed32(__int64 a1, __int64 a2)
 {
   __int64 v2; // x19
@@ -7701,7 +7726,7 @@ signed __int64 __fastcall pb_decode_fixed32(__int64 a1, __int64 a2)
 
   v2 = a1;
   v4 = MEMORY[0];
-  if ( a2 || *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12798 )
+  if ( a2 || *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12730 )
   {
     if ( *(_QWORD *)(a1 + 16) <= 3uLL )
     {
@@ -7740,7 +7765,7 @@ LABEL_14:
   return result;
 }
 
-//----- (0000000000014314) ----------------------------------------------------
+//----- (00000000000142AC) ----------------------------------------------------
 signed __int64 __fastcall pb_decode_fixed64(__int64 a1, __int64 a2)
 {
   __int64 v2; // x19
@@ -7749,7 +7774,7 @@ signed __int64 __fastcall pb_decode_fixed64(__int64 a1, __int64 a2)
 
   v2 = a1;
   v4 = MEMORY[0];
-  if ( a2 || *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12798 )
+  if ( a2 || *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12730 )
   {
     if ( *(_QWORD *)(a1 + 16) <= 7uLL )
     {
@@ -7788,8 +7813,8 @@ LABEL_14:
   return result;
 }
 
-//----- (0000000000014430) ----------------------------------------------------
-signed __int64 __fastcall sub_14430(__int64 a1, __int64 a2, _BYTE *a3)
+//----- (00000000000143C8) ----------------------------------------------------
+signed __int64 __fastcall sub_143C8(__int64 a1, __int64 a2, _BYTE *a3)
 {
   _BYTE *v3; // x20
   __int64 v4; // x21
@@ -7874,8 +7899,8 @@ LABEL_14:
   return result;
 }
 
-//----- (00000000000145A0) ----------------------------------------------------
-signed __int64 __fastcall sub_145A0(__int64 a1, __int64 a2, _QWORD *a3)
+//----- (0000000000014538) ----------------------------------------------------
+signed __int64 __fastcall sub_14538(__int64 a1, __int64 a2, _QWORD *a3)
 {
   _QWORD *v3; // x20
   __int64 v4; // x21
@@ -7951,8 +7976,8 @@ LABEL_15:
   return result;
 }
 
-//----- (00000000000146E8) ----------------------------------------------------
-signed __int64 __fastcall sub_146E8(__int64 a1, __int64 a2, unsigned __int64 *a3)
+//----- (0000000000014680) ----------------------------------------------------
+signed __int64 __fastcall sub_14680(__int64 a1, __int64 a2, unsigned __int64 *a3)
 {
   unsigned __int64 *v3; // x20
   __int64 v4; // x21
@@ -8030,8 +8055,8 @@ LABEL_15:
   return result;
 }
 
-//----- (0000000000014838) ----------------------------------------------------
-signed __int64 __fastcall sub_14838(__int64 a1, __int64 a2, __int64 a3)
+//----- (00000000000147D0) ----------------------------------------------------
+signed __int64 __fastcall sub_147D0(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // x19
   signed __int64 result; // x0
@@ -8039,7 +8064,7 @@ signed __int64 __fastcall sub_14838(__int64 a1, __int64 a2, __int64 a3)
 
   v3 = a1;
   v5 = MEMORY[0];
-  if ( a3 || *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12798 )
+  if ( a3 || *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12730 )
   {
     if ( *(_QWORD *)(a1 + 16) <= 3uLL )
     {
@@ -8078,8 +8103,8 @@ LABEL_14:
   return result;
 }
 
-//----- (000000000001495C) ----------------------------------------------------
-signed __int64 __fastcall sub_1495C(__int64 a1, __int64 a2, __int64 a3)
+//----- (00000000000148F4) ----------------------------------------------------
+signed __int64 __fastcall sub_148F4(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // x19
   signed __int64 result; // x0
@@ -8087,7 +8112,7 @@ signed __int64 __fastcall sub_1495C(__int64 a1, __int64 a2, __int64 a3)
 
   v3 = a1;
   v5 = MEMORY[0];
-  if ( a3 || *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12798 )
+  if ( a3 || *(signed __int64 (__fastcall **)(__int64, _OWORD *, unsigned __int64))a1 == sub_12730 )
   {
     if ( *(_QWORD *)(a1 + 16) <= 7uLL )
     {
@@ -8126,8 +8151,8 @@ LABEL_14:
   return result;
 }
 
-//----- (0000000000014A80) ----------------------------------------------------
-signed __int64 __fastcall sub_14A80(__int64 a1, __int64 a2, void **a3)
+//----- (0000000000014A18) ----------------------------------------------------
+signed __int64 __fastcall sub_14A18(__int64 a1, __int64 a2, void **a3)
 {
   __int64 v3; // x19
   void **v4; // x20
@@ -8243,8 +8268,8 @@ LABEL_18:
   return result;
 }
 
-//----- (0000000000014C4C) ----------------------------------------------------
-signed __int64 __fastcall sub_14C4C(__int64 a1, __int64 a2, void **a3)
+//----- (0000000000014BE4) ----------------------------------------------------
+signed __int64 __fastcall sub_14BE4(__int64 a1, __int64 a2, void **a3)
 {
   __int64 v3; // x19
   void **v4; // x20
@@ -8359,8 +8384,8 @@ LABEL_18:
   return result;
 }
 
-//----- (0000000000014E18) ----------------------------------------------------
-signed __int64 __fastcall sub_14E18(__int64 a1, __int64 a2, void **a3)
+//----- (0000000000014DB0) ----------------------------------------------------
+signed __int64 __fastcall sub_14DB0(__int64 a1, __int64 a2, void **a3)
 {
   __int64 v3; // x22
   void **v4; // x20
@@ -8389,7 +8414,7 @@ signed __int64 __fastcall sub_14E18(__int64 a1, __int64 a2, void **a3)
   {
     if ( (*(_BYTE *)(v3 + 1) & 0x30) == 32 )
     {
-      sub_13D1C(v7, v4);
+      sub_13CB4(v7, v4);
       if ( pb_decode_noinit((__int64)&v10, (__int64)v7, (__int64)v4) & 1 )
       {
         result = 1LL;
@@ -8424,10 +8449,10 @@ LABEL_14:
   return result;
 }
 
-//----- (0000000000014F28) ----------------------------------------------------
+//----- (0000000000014EC0) ----------------------------------------------------
 signed __int64 (__fastcall *__usercall pb_ostream_from_buffer@<X0>(signed __int64 (__fastcall *result)(__int64 a1, char *a2, unsigned __int64 a3)@<X0>, signed __int64 (__fastcall *a2)(__int64 a1, char *a2, unsigned __int64 a3)@<X1>, signed __int64 (__fastcall **a3)(__int64 a1, char *a2, unsigned __int64 a3)@<X8>))(__int64 a1, char *a2, unsigned __int64 a3)
 {
-  *a3 = sub_14F40;
+  *a3 = sub_14ED8;
   a3[1] = result;
   a3[2] = a2;
   a3[3] = 0LL;
@@ -8435,8 +8460,8 @@ signed __int64 (__fastcall *__usercall pb_ostream_from_buffer@<X0>(signed __int6
   return result;
 }
 
-//----- (0000000000014F40) ----------------------------------------------------
-signed __int64 __fastcall sub_14F40(__int64 a1, char *a2, unsigned __int64 a3)
+//----- (0000000000014ED8) ----------------------------------------------------
+signed __int64 __fastcall sub_14ED8(__int64 a1, char *a2, unsigned __int64 a3)
 {
   char *v3; // x10
   unsigned __int64 v4; // x12
@@ -8485,7 +8510,7 @@ LABEL_7:
   return 1LL;
 }
 
-//----- (0000000000014FCC) ----------------------------------------------------
+//----- (0000000000014F64) ----------------------------------------------------
 signed __int64 __fastcall pb_write(__int64 (**a1)(void), __int64 a2, __int64 a3)
 {
   __int64 (**v3)(void); // x19
@@ -8518,7 +8543,7 @@ LABEL_13:
   return result;
 }
 
-//----- (0000000000015070) ----------------------------------------------------
+//----- (0000000000015008) ----------------------------------------------------
 signed __int64 __fastcall pb_encode(_QWORD *a1, unsigned __int8 *a2, char *a3)
 {
   unsigned __int8 *v3; // x19
@@ -8560,7 +8585,7 @@ signed __int64 __fastcall pb_encode(_QWORD *a1, unsigned __int8 *a2, char *a3)
             if ( !(v10(v5, v9) & 1) )
               return 0LL;
           }
-          else if ( !(sub_15178(v5, *(unsigned __int8 **)(*(_QWORD *)v9 + 16LL), *(_QWORD **)(v9 + 8)) & 1) )
+          else if ( !(sub_15110(v5, *(unsigned __int8 **)(*(_QWORD *)v9 + 16LL), *(_QWORD **)(v9 + 8)) & 1) )
           {
             return 0LL;
           }
@@ -8571,7 +8596,7 @@ signed __int64 __fastcall pb_encode(_QWORD *a1, unsigned __int8 *a2, char *a3)
       }
       goto LABEL_16;
     }
-    if ( !(sub_15178(v5, v3, v4) & 1) )
+    if ( !(sub_15110(v5, v3, v4) & 1) )
       return 0LL;
 LABEL_16:
     v11 = v3[14];
@@ -8581,8 +8606,8 @@ LABEL_16:
   }
 }
 
-//----- (0000000000015178) ----------------------------------------------------
-signed __int64 __fastcall sub_15178(_QWORD *a1, unsigned __int8 *a2, _QWORD *a3)
+//----- (0000000000015110) ----------------------------------------------------
+signed __int64 __fastcall sub_15110(_QWORD *a1, unsigned __int8 *a2, _QWORD *a3)
 {
   unsigned __int8 *v3; // x21
   _QWORD *v4; // x20
@@ -8672,7 +8697,7 @@ signed __int64 __fastcall sub_15178(_QWORD *a1, unsigned __int8 *a2, _QWORD *a3)
         v11 = v6 & 0xF;
         if ( v11 < 8 )
         {
-          if ( !(pb_encode_varint(a1, dword_197F0[v11] | 8LL * *a2) & 1) )
+          if ( !(pb_encode_varint(a1, dword_19770[v11] | 8LL * *a2) & 1) )
             return 0LL;
           if ( !(((__int64 (__fastcall *)(_QWORD *, unsigned __int8 *, _QWORD *))v10)(v5, v3, v4) & 1) )
             return 0LL;
@@ -8688,7 +8713,7 @@ signed __int64 __fastcall sub_15178(_QWORD *a1, unsigned __int8 *a2, _QWORD *a3)
       v13 = v6 & 0xF;
       if ( v13 < 8 )
       {
-        if ( !(pb_encode_varint(a1, dword_197F0[v13] | 8LL * *a2) & 1) )
+        if ( !(pb_encode_varint(a1, dword_19770[v13] | 8LL * *a2) & 1) )
           return 0LL;
         if ( !(((__int64 (__fastcall *)(_QWORD *, unsigned __int8 *, _QWORD *))v10)(v5, v3, v4) & 1) )
           return 0LL;
@@ -8724,7 +8749,7 @@ LABEL_62:
       v19 = 0LL;
       do
       {
-        if ( !(pb_encode_varint(v5, dword_197F0[v15] | 8LL * *v3) & 1) )
+        if ( !(pb_encode_varint(v5, dword_19770[v15] | 8LL * *v3) & 1) )
           return 0LL;
         v20 = v3[1];
         if ( (v20 & 0xC0) != 128 || (v20 & 0xFu) - 5 > 1 )
@@ -8797,7 +8822,7 @@ LABEL_73:
 }
 // 1D860: using guessed type __int64 (__fastcall *off_1D860[8])();
 
-//----- (00000000000155D8) ----------------------------------------------------
+//----- (0000000000015570) ----------------------------------------------------
 signed __int64 __fastcall pb_encode_submessage(_QWORD *a1, unsigned __int8 *a2, char *a3)
 {
   _QWORD *v3; // x19
@@ -8883,7 +8908,7 @@ LABEL_14:
   return result;
 }
 
-//----- (0000000000015738) ----------------------------------------------------
+//----- (00000000000156D0) ----------------------------------------------------
 signed __int64 __fastcall pb_get_encoded_size(_QWORD *a1, unsigned __int8 *a2, char *a3)
 {
   _QWORD *v3; // x19
@@ -8905,7 +8930,7 @@ signed __int64 __fastcall pb_get_encoded_size(_QWORD *a1, unsigned __int8 *a2, c
   return result;
 }
 
-//----- (00000000000157A8) ----------------------------------------------------
+//----- (0000000000015740) ----------------------------------------------------
 signed __int64 __fastcall pb_encode_varint(_QWORD *a1, unsigned __int64 a2)
 {
   _QWORD *v2; // x19
@@ -8986,15 +9011,15 @@ LABEL_26:
   v2[4] = "io error";
   return result;
 }
-// 157A8: using guessed type char var_32[10];
+// 15740: using guessed type char var_32[10];
 
-//----- (000000000001591C) ----------------------------------------------------
+//----- (00000000000158B4) ----------------------------------------------------
 signed __int64 __fastcall pb_encode_svarint(_QWORD *a1, __int64 a2)
 {
   return pb_encode_varint(a1, 2 * a2 ^ (a2 >> 63));
 }
 
-//----- (0000000000015928) ----------------------------------------------------
+//----- (00000000000158C0) ----------------------------------------------------
 signed __int64 __fastcall pb_encode_fixed32(__int64 (**a1)(void))
 {
   __int64 (**v1)(void); // x19
@@ -9025,7 +9050,7 @@ LABEL_13:
   return result;
 }
 
-//----- (00000000000159C8) ----------------------------------------------------
+//----- (0000000000015960) ----------------------------------------------------
 signed __int64 __fastcall pb_encode_fixed64(__int64 (**a1)(void))
 {
   __int64 (**v1)(void); // x19
@@ -9056,26 +9081,26 @@ LABEL_13:
   return result;
 }
 
-//----- (0000000000015A68) ----------------------------------------------------
+//----- (0000000000015A00) ----------------------------------------------------
 signed __int64 __fastcall pb_encode_tag(_QWORD *a1, unsigned int a2, unsigned int a3)
 {
   return pb_encode_varint(a1, a2 | 8LL * a3);
 }
 
-//----- (0000000000015A78) ----------------------------------------------------
+//----- (0000000000015A10) ----------------------------------------------------
 signed __int64 __fastcall pb_encode_tag_for_field(_QWORD *a1, unsigned __int8 *a2)
 {
   unsigned int v2; // w8
 
   v2 = a2[1] & 0xF;
   if ( v2 < 8 )
-    return pb_encode_varint(a1, dword_197F0[a2[1] & 0xF] | 8LL * *a2);
+    return pb_encode_varint(a1, dword_19770[a2[1] & 0xF] | 8LL * *a2);
   if ( !a1[4] )
     a1[4] = "invalid field type";
   return 0LL;
 }
 
-//----- (0000000000015ABC) ----------------------------------------------------
+//----- (0000000000015A54) ----------------------------------------------------
 signed __int64 __fastcall pb_encode_string(_QWORD *a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // x20
@@ -9112,8 +9137,8 @@ LABEL_15:
   return result;
 }
 
-//----- (0000000000015B84) ----------------------------------------------------
-signed __int64 __fastcall sub_15B84(_QWORD *a1, __int64 a2, unsigned __int64 *a3)
+//----- (0000000000015B1C) ----------------------------------------------------
+signed __int64 __fastcall sub_15B1C(_QWORD *a1, __int64 a2, unsigned __int64 *a3)
 {
   signed __int64 result; // x0
 
@@ -9140,8 +9165,8 @@ signed __int64 __fastcall sub_15B84(_QWORD *a1, __int64 a2, unsigned __int64 *a3
   return result;
 }
 
-//----- (0000000000015BE4) ----------------------------------------------------
-signed __int64 __fastcall sub_15BE4(_QWORD *a1, __int64 a2, unsigned __int64 *a3)
+//----- (0000000000015B7C) ----------------------------------------------------
+signed __int64 __fastcall sub_15B7C(_QWORD *a1, __int64 a2, unsigned __int64 *a3)
 {
   int v3; // w8
 
@@ -9155,8 +9180,8 @@ signed __int64 __fastcall sub_15BE4(_QWORD *a1, __int64 a2, unsigned __int64 *a3
   return 0LL;
 }
 
-//----- (0000000000015C24) ----------------------------------------------------
-signed __int64 __fastcall sub_15C24(_QWORD *a1, __int64 a2, signed int *a3)
+//----- (0000000000015BBC) ----------------------------------------------------
+signed __int64 __fastcall sub_15BBC(_QWORD *a1, __int64 a2, signed int *a3)
 {
   int v3; // w8
   __int64 v4; // x8
@@ -9177,8 +9202,8 @@ signed __int64 __fastcall sub_15C24(_QWORD *a1, __int64 a2, signed int *a3)
   return 0LL;
 }
 
-//----- (0000000000015C6C) ----------------------------------------------------
-signed __int64 __fastcall sub_15C6C(__int64 (**a1)(void))
+//----- (0000000000015C04) ----------------------------------------------------
+signed __int64 __fastcall sub_15C04(__int64 (**a1)(void))
 {
   __int64 (**v1)(void); // x19
   signed __int64 result; // x0
@@ -9208,8 +9233,8 @@ LABEL_13:
   return result;
 }
 
-//----- (0000000000015D14) ----------------------------------------------------
-signed __int64 __fastcall sub_15D14(__int64 (**a1)(void))
+//----- (0000000000015CAC) ----------------------------------------------------
+signed __int64 __fastcall sub_15CAC(__int64 (**a1)(void))
 {
   __int64 (**v1)(void); // x19
   signed __int64 result; // x0
@@ -9239,8 +9264,8 @@ LABEL_13:
   return result;
 }
 
-//----- (0000000000015DBC) ----------------------------------------------------
-signed __int64 __fastcall sub_15DBC(_QWORD *a1, __int64 a2, unsigned __int64 *a3)
+//----- (0000000000015D54) ----------------------------------------------------
+signed __int64 __fastcall sub_15D54(_QWORD *a1, __int64 a2, unsigned __int64 *a3)
 {
   unsigned __int64 *v3; // x21
   _QWORD *v4; // x19
@@ -9339,8 +9364,8 @@ LABEL_41:
   return result;
 }
 
-//----- (0000000000015FD0) ----------------------------------------------------
-signed __int64 __fastcall sub_15FD0(_QWORD *a1, __int64 a2, __int64 a3)
+//----- (0000000000015F68) ----------------------------------------------------
+signed __int64 __fastcall sub_15F68(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // x20
   _QWORD *v4; // x19
@@ -9390,8 +9415,8 @@ LABEL_21:
   return result;
 }
 
-//----- (00000000000160D0) ----------------------------------------------------
-signed __int64 __fastcall sub_160D0(_QWORD *a1, __int64 a2, char *a3)
+//----- (0000000000016068) ----------------------------------------------------
+signed __int64 __fastcall sub_16068(_QWORD *a1, __int64 a2, char *a3)
 {
   unsigned __int8 *v3; // x1
 
@@ -9403,4 +9428,4 @@ signed __int64 __fastcall sub_160D0(_QWORD *a1, __int64 a2, char *a3)
   return 0LL;
 }
 
-// ALL OK, 254 function(s) have been successfully decompiled
+// ALL OK, 255 function(s) have been successfully decompiled
